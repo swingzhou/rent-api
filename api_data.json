@@ -579,7 +579,7 @@
     "title": "取消订单服务包预购",
     "name": "cancelServicePackPreorder",
     "group": "SaleRentOrderRestController",
-    "description": "<p>取消订单服务包预购</p>",
+    "description": "<p>取消订单服务包预购(民用售租单和租约服务单均使用此接口取消预购)</p>",
     "permission": [
       {
         "name": "userOnly"
