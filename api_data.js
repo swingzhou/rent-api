@@ -1,5 +1,306 @@
 define({ "api": [
   {
+    "type": "GET",
+    "url": "/v1/xlink-rent-rest/leaseServiceRest/getLeaseServiceInfo/{id}",
+    "title": "获取租约服务单信息",
+    "name": "getLeaseServiceInfo",
+    "group": "LeaseServiceRestController",
+    "description": "<p>获取租约服务单信息</p>",
+    "permission": [
+      {
+        "name": "userOnly"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "id",
+            "description": "<p>租约服务单号</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "code",
+            "description": "<p>返回编码</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "object",
+            "optional": false,
+            "field": "data",
+            "description": "<p>返回数据</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "long",
+            "optional": false,
+            "field": "data.createDate",
+            "description": "<p>创建日期</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data.createMan",
+            "description": "<p>创建者标识</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data.createManName",
+            "description": "<p>创建者名称</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data.deviceSn",
+            "description": "<p>设备sn</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data.id",
+            "description": "<p>单号</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "array(object)",
+            "optional": false,
+            "field": "data.leaseServicePacks",
+            "description": "<p>租约服务包信息</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "decimal(string)",
+            "optional": false,
+            "field": "data.leaseServicePacks.amount",
+            "description": "<p>金额</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "long",
+            "optional": false,
+            "field": "data.leaseServicePacks.cancelDate",
+            "description": "<p>取消日期</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data.leaseServicePacks.cancelMan",
+            "description": "<p>取消人标识</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data.leaseServicePacks.cancelManName",
+            "description": "<p>取消人名称</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data.leaseServicePacks.packId",
+            "description": "<p>服务包标识</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data.leaseServicePacks.packName",
+            "description": "<p>服务包名称</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "data.leaseServicePacks.packOrder",
+            "description": "<p>服务包序号</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "data.leaseServicePacks.packPeriod",
+            "description": "<p>服务包期限</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data.leaseServicePacks.packSn",
+            "description": "<p>服务包料号</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data.leaseServicePacks.packStatus",
+            "description": "<p>服务包状态 已购买PURCHASED/预购PREORDER/已取消CANCEL</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "long",
+            "optional": false,
+            "field": "data.leaseServicePacks.purchaseDate",
+            "description": "<p>购买时间</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data.orderType",
+            "description": "<p>单据类型 商用COMMERCIAL/民用CIVIL/租约服务LEASE_SERVICE</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "data.rentPeriod",
+            "description": "<p>续租租期</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "msg",
+            "description": "<p>返回信息</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "responseTime",
+            "description": "<p>返回响应时间</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "status",
+            "description": "<p>响应状态</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response: ",
+          "content": "{\n  \"code\": \"string\",\n  \"data\": {\n    \"createDate\": 0,\n    \"createMan\": \"string\",\n    \"createManName\": \"string\",\n    \"deviceSn\": \"string\",\n    \"id\": \"string\",\n    \"leaseServicePacks\": [\n      {\n        \"amount\": 0,\n        \"cancelDate\": 0,\n        \"cancelMan\": \"string\",\n        \"cancelManName\": \"string\",\n        \"packId\": \"string\",\n        \"packName\": \"string\",\n        \"packOrder\": 0,\n        \"packPeriod\": 0,\n        \"packSn\": \"string\",\n        \"packStatus\": \"PURCHASED\",\n        \"purchaseDate\": 0\n      }\n    ],\n    \"orderType\": \"COMMERCIAL\",\n    \"rentPeriod\": 0\n  },\n  \"msg\": \"string\",\n  \"responseTime\": \"2019-01-25T12:22:25.205Z\",\n  \"status\": \"string\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "错误码详情": [
+          {
+            "group": "errorCode",
+            "type": "string",
+            "optional": false,
+            "field": "20216002",
+            "description": "<p>租约服务单号为空</p>"
+          },
+          {
+            "group": "errorCode",
+            "type": "string",
+            "optional": false,
+            "field": "20216003",
+            "description": "<p>获取租约服务订单信息失败</p>"
+          },
+          {
+            "group": "errorCode",
+            "type": "string",
+            "optional": false,
+            "field": "20216004",
+            "description": "<p>租约服务信息不存在</p>"
+          },
+          {
+            "group": "errorCode",
+            "type": "string",
+            "optional": false,
+            "field": "20216005",
+            "description": "<p>获取服务包列表失败</p>"
+          },
+          {
+            "group": "errorCode",
+            "type": "string",
+            "optional": false,
+            "field": "000000",
+            "description": "<p>请求成功</p>"
+          }
+        ],
+        "错误格式说明": [
+          {
+            "group": "errorFormat",
+            "type": "string",
+            "optional": false,
+            "field": "msg",
+            "description": "<p>接口返回的错误信息</p>"
+          },
+          {
+            "group": "errorFormat",
+            "type": "string",
+            "optional": false,
+            "field": "code",
+            "description": "<p>错误码</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "{\n    \"responseTime\": \"2019-01-02T09:47:15.032+0000\",\n    \"code\": \"20107007\",\n    \"status\": \"200\",\n    \"msg\": \"fail to add account period\",\n    \"data\": null\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/main/java/cn/xlink/cloud/rent/rest/controller/LeaseServiceRestController.java",
+    "groupTitle": "LeaseServiceRestController",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "Access-Token",
+            "description": "<p>xlink平台颁发的凭证</p>"
+          },
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "Content-Type",
+            "description": "<p>application/json</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Header-Example:",
+          "content": "{\n\"Access-Token\":\"访问凭证\",\n\"Content-Type\":\"application/json\"\n}",
+          "type": "json"
+        }
+      ]
+    }
+  },
+  {
     "type": "POST",
     "url": "/v1/xlink-rent-rest/leaseServiceRest/listLeaseServices",
     "title": "分页获取租约服务列表",
