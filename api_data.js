@@ -1437,6 +1437,13 @@ define({ "api": [
           },
           {
             "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data.list.dealerName",
+            "description": "<p>经销商</p>"
+          },
+          {
+            "group": "Success 200",
             "type": "long",
             "optional": false,
             "field": "data.list.firstActivateTime",
@@ -1468,7 +1475,7 @@ define({ "api": [
             "type": "string",
             "optional": false,
             "field": "data.list.status",
-            "description": "<p>状态</p>"
+            "description": "<p>状态 PENDING_RENT(待租赁) PENDING_ACTIVATION(待激活) LEASING(租赁中) RETURN_FACTORY(待返厂) WAITING_ENTRY(待入厂) PENDING_STORAGE(待入仓)</p>"
           },
           {
             "group": "Success 200",
@@ -1496,7 +1503,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response: ",
-          "content": "HTTP/1.1 200 OK \n{\n   \"responseTime\": \"2019-01-28T02:08:57.258+0000\",\n   \"code\": \"000000\",\n   \"status\": \"200\",\n   \"msg\": \"请求成功\",\n   \"data\": {\n     \"list\": [\n       {\n         \"id\": \"115c4ad22bbbe487314872ed6a\",\n         \"productId\": \"e23383571e914869\",\n         \"deviceSn\": \"89001\",\n         \"productName\": \"11\",\n         \"packRemainPeriod\": 20,\n         \"status\": \"PENDING_RENT\",\n         \"firstActivateTime\": 1000877875\n       }\n     ],\n     \"count\": 1\n   }\n }",
+          "content": "HTTP/1.1 200 OK \n{\n   \"responseTime\": \"2019-01-28T02:08:57.258+0000\",\n   \"code\": \"000000\",\n   \"status\": \"200\",\n   \"msg\": \"请求成功\",\n   \"data\": {\n     \"list\": [\n       {\n         \"id\": \"115c4ad22bbbe487314872ed6a\",\n         \"productId\": \"e23383571e914869\",\n         \"deviceSn\": \"89001\",\n         \"productName\": \"11\",\n         \"dealerName\": null,\n         \"packRemainPeriod\": 20,\n         \"status\": \"PENDING_RENT\",\n         \"firstActivateTime\": 1000877875\n       }\n     ],\n     \"count\": 1\n   }\n }",
           "type": "json"
         }
       ]
