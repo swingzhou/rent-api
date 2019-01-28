@@ -927,7 +927,7 @@ define({ "api": [
           {
             "group": "Parameter",
             "type": "array(object)",
-            "optional": false,
+            "optional": true,
             "field": "sort",
             "description": "<p>排序数组</p>"
           }
@@ -1327,7 +1327,7 @@ define({ "api": [
           {
             "group": "Parameter",
             "type": "array(object)",
-            "optional": false,
+            "optional": true,
             "field": "sort",
             "description": "<p>排序数组</p>"
           },
