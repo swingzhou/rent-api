@@ -574,7 +574,7 @@ define({ "api": [
     }
   },
   {
-    "type": "POST",
+    "type": "GET",
     "url": "/v1/xlink-rent-rest/rentDeviceRest/findDeviceLifeCycleInfoById?id=${id}",
     "title": "查询设备生命周期详情",
     "name": "findDeviceLifeCycleInfoById",
@@ -585,26 +585,6 @@ define({ "api": [
         "name": "userOnly"
       }
     ],
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": false,
-            "field": "id",
-            "description": ""
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Request-Example:",
-          "content": "{\n  \"id\":\"115c4ad22bbbe487314872ed6a\"\n}",
-          "type": "json"
-        }
-      ]
-    },
     "success": {
       "fields": {
         "Success 200": [
@@ -899,14 +879,14 @@ define({ "api": [
           {
             "group": "Parameter",
             "type": "long",
-            "optional": false,
+            "optional": true,
             "field": "query.createDateEnd",
             "description": "<p>日志开始时间</p>"
           },
           {
             "group": "Parameter",
             "type": "long",
-            "optional": false,
+            "optional": true,
             "field": "query.createDateStart",
             "description": "<p>日志结束时间</p>"
           },
@@ -920,7 +900,7 @@ define({ "api": [
           {
             "group": "Parameter",
             "type": "string",
-            "optional": false,
+            "optional": true,
             "field": "query.logType",
             "description": "<p>日志类型  ORDER_RECORD(订单/申请记录) DEVICE_STATUS_CHANGE_RECORD(设备状态变更记录) RENT_STATUS_CHANGE_RECORD(租赁状态变更记录) TENANCY_RECORD(租期记录) WORK_ORDER_RECORD(工单记录) DEVICE_DEBUGGING(设备调试) CONSUMABLES_REPLACE(耗材更换) PARTS_REPLACE(配件更换)</p>"
           },
@@ -1341,42 +1321,42 @@ define({ "api": [
           {
             "group": "Parameter",
             "type": "string",
-            "optional": false,
+            "optional": true,
             "field": "query.deviceSn",
             "description": "<p>设备SN</p>"
           },
           {
             "group": "Parameter",
             "type": "long",
-            "optional": false,
+            "optional": true,
             "field": "query.firstActivateEndTime",
             "description": "<p>首次激活开始时间</p>"
           },
           {
             "group": "Parameter",
             "type": "long",
-            "optional": false,
+            "optional": true,
             "field": "query.firstActivateStartTime",
-            "description": "<p>首次激活结束时间</p>"
+            "description": "<p>[ 首次激活结束时间</p>"
           },
           {
             "group": "Parameter",
             "type": "int",
-            "optional": false,
+            "optional": true,
             "field": "query.packRemainPeriodEnd",
             "description": "<p>服务期限开始天数</p>"
           },
           {
             "group": "Parameter",
             "type": "int",
-            "optional": false,
+            "optional": true,
             "field": "query.packRemainPeriodStart",
             "description": "<p>服务期限结束天数</p>"
           },
           {
             "group": "Parameter",
             "type": "string",
-            "optional": false,
+            "optional": true,
             "field": "query.productName",
             "description": "<p>产品名</p>"
           }
