@@ -155,6 +155,13 @@
           },
           {
             "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data.leaseServicePacks.orderPackId",
+            "description": "<p>订单服务包标识</p>"
+          },
+          {
+            "group": "Success 200",
             "type": "long",
             "optional": false,
             "field": "data.leaseServicePacks.purchaseDate",
@@ -2751,6 +2758,13 @@
             "optional": false,
             "field": "data",
             "description": "<p>返回数据</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data.orderPackId",
+            "description": "<p>订单服务包标识</p>"
           },
           {
             "group": "Success 200",
