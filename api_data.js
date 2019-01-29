@@ -575,7 +575,7 @@ define({ "api": [
   },
   {
     "type": "GET",
-    "url": "/v1/xlink-rent-rest/rentDeviceRest/findDeviceLifeCycleInfoById?id=${id}",
+    "url": "/v1/xlink-rent-rest/rentDeviceRest/findDeviceLifeCycleInfoById/{id}",
     "title": "查询设备生命周期详情",
     "name": "findDeviceLifeCycleInfoById",
     "group": "RentDeviceController",
@@ -691,7 +691,7 @@ define({ "api": [
             "type": "int",
             "optional": false,
             "field": "data.remainPeriod",
-            "description": "<p>服务包剩余时长</p>"
+            "description": "<p>剩余租期</p>"
           },
           {
             "group": "Success 200",
