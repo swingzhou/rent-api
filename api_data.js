@@ -1777,7 +1777,7 @@ define({ "api": [
             "type": "string",
             "optional": false,
             "field": "data.acceptAddress",
-            "description": ""
+            "description": "<p>收货地址</p>"
           },
           {
             "group": "Success 200",
