@@ -849,6 +849,300 @@ define({ "api": [
   },
   {
     "type": "POST",
+    "url": "/v1/xlink-rent-rest/rentDeviceRest/listDeviceFinanceRecords",
+    "title": "分页查询租赁设备关联财务记录",
+    "name": "listDeviceFinanceRecords",
+    "group": "RentDeviceController",
+    "description": "<p>分页查询租赁设备关联财务记录</p>",
+    "permission": [
+      {
+        "name": "userOnly"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "page",
+            "description": "<p>页数</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "size",
+            "description": "<p>页大小</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "object",
+            "optional": false,
+            "field": "query",
+            "description": "<p>分页查询条件</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "long",
+            "optional": false,
+            "field": "query.[createDateEnd]",
+            "description": "<p>财务记录结束时间</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "long",
+            "optional": false,
+            "field": "query.[createDateStart]",
+            "description": "<p>财务记录开始时间</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "query.deviceId",
+            "description": "<p>租赁设备标识</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "query.[financeType]",
+            "description": "<p>财务类型 COST(成本)INCOME(收入)DEFER(递延)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "array(object)",
+            "optional": true,
+            "field": "sort",
+            "description": "<p>排序数组</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n   \"page\": 1,\n   \"size\": 10,\n   \"sort\": [\n     {\n       \"additionalProp1\": \"desc\",\n       \"additionalProp2\": \"asc\"\n     }\n   ],\n   \"query\": {\n     \"deviceId\": \"string\",\n     \"financeType\": \"COST\",\n     \"createDateStart\": 0,\n     \"createDateEnd\": 0\n   }\n }",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "code",
+            "description": "<p>返回编码</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "object",
+            "optional": false,
+            "field": "data",
+            "description": "<p>返回对象</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "decimal(string)",
+            "optional": false,
+            "field": "data.costCount",
+            "description": "<p>成本汇总</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "decimal(string)",
+            "optional": false,
+            "field": "data.incomeCount",
+            "description": "<p>收入汇总</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "decimal(string)",
+            "optional": false,
+            "field": "data.residualDeferral",
+            "description": "<p>剩余递延</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "object",
+            "optional": false,
+            "field": "data.pageResponse",
+            "description": "<p>分页查询数据对象</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "long",
+            "optional": false,
+            "field": "data.pageResponse.count",
+            "description": "<p>总数</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "array(object)",
+            "optional": false,
+            "field": "data.pageResponse.list",
+            "description": "<p>分页查询数据对象集合</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "long",
+            "optional": false,
+            "field": "data.pageResponse.list.createDate",
+            "description": "<p>创建日期</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data.pageResponse.list.financeDetail",
+            "description": "<p>财务明细项</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data.pageResponse.list.financeType",
+            "description": "<p>财务类型 COST(成本)INCOME(收入)DEFER(递延)</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "decimal(string)",
+            "optional": false,
+            "field": "data.pageResponse.list.money",
+            "description": "<p>金额</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "msg",
+            "description": "<p>返回信息</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "responseTime",
+            "description": "<p>返回响应时间</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "status",
+            "description": "<p>响应状态</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response: ",
+          "content": "HTTP/1.1 200 OK \n{\n   \"responseTime\": \"2019-01-29T10:08:34.108+0000\",\n   \"code\": \"000000\",\n   \"status\": \"200\",\n   \"msg\": \"请求成功\",\n   \"data\": {\n     \"incomeCount\": 222,\n     \"costCount\": 245,\n     \"residualDeferral\": 1330,\n     \"pageResponse\": {\n       \"list\": [\n         {\n           \"financeType\": \"COST\",\n           \"financeDetail\": \"string\",\n           \"money\": 10,\n           \"createDate\": 1548674734392\n         }\n       ],\n        \"count\": 1\n     }\n   }\n }",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "错误码详情": [
+          {
+            "group": "errorCode",
+            "type": "string",
+            "optional": false,
+            "field": "10000001",
+            "description": "<p>空参数</p>"
+          },
+          {
+            "group": "errorCode",
+            "type": "string",
+            "optional": false,
+            "field": "20210001",
+            "description": "<p>id为空</p>"
+          },
+          {
+            "group": "errorCode",
+            "type": "string",
+            "optional": false,
+            "field": "20210008",
+            "description": "<p>分页查询设备关联财务记录失败</p>"
+          },
+          {
+            "group": "errorCode",
+            "type": "string",
+            "optional": false,
+            "field": "20210009",
+            "description": "<p>查询所有财务记录列表失败</p>"
+          },
+          {
+            "group": "errorCode",
+            "type": "string",
+            "optional": false,
+            "field": "000000",
+            "description": "<p>请求成功</p>"
+          }
+        ],
+        "错误格式说明": [
+          {
+            "group": "errorFormat",
+            "type": "string",
+            "optional": false,
+            "field": "msg",
+            "description": "<p>接口返回的错误信息</p>"
+          },
+          {
+            "group": "errorFormat",
+            "type": "string",
+            "optional": false,
+            "field": "code",
+            "description": "<p>错误码</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "{\n    \"responseTime\": \"2019-01-02T09:47:15.032+0000\",\n    \"code\": \"20107007\",\n    \"status\": \"200\",\n    \"msg\": \"fail to add account period\",\n    \"data\": null\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/main/java/cn/xlink/cloud/rent/rest/controller/RentDeviceController.java",
+    "groupTitle": "RentDeviceController",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "Access-Token",
+            "description": "<p>xlink平台颁发的凭证</p>"
+          },
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "Content-Type",
+            "description": "<p>application/json</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Header-Example:",
+          "content": "{\n\"Access-Token\":\"访问凭证\",\n\"Content-Type\":\"application/json\"\n}",
+          "type": "json"
+        }
+      ]
+    }
+  },
+  {
+    "type": "POST",
     "url": "/v1/xlink-rent-rest/rentDeviceRest/listDeviceLogs",
     "title": "分页查询租赁设备关联日志",
     "name": "listDeviceLogs",
@@ -1101,6 +1395,196 @@ define({ "api": [
   },
   {
     "type": "POST",
+    "url": "/v1/xlink-rent-rest/rentDeviceRest/listDeviceMaterials/{deviceId}",
+    "title": "查询租赁设备关联耗材管理",
+    "name": "listDeviceMaterials",
+    "group": "RentDeviceController",
+    "description": "<p>查询租赁设备关联耗材管理</p>",
+    "permission": [
+      {
+        "name": "userOnly"
+      }
+    ],
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "code",
+            "description": "<p>返回编码</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "array(object)",
+            "optional": false,
+            "field": "data",
+            "description": "<p>返回数据对象</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "data.currLife",
+            "description": "<p>当前剩余寿命(天)</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "data.earlyWarningLife",
+            "description": "<p>预警寿命(天)</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "data.life",
+            "description": "<p>耗材寿命(天)</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data.materialId",
+            "description": "<p>耗材标识</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data.name",
+            "description": "<p>耗材名称</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data.status",
+            "description": "<p>状态  NORMAL(正常) EXPIRING(即将到期) EXPIRED(已过期)</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "msg",
+            "description": "<p>返回信息</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "responseTime",
+            "description": "<p>返回响应时间</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "status",
+            "description": "<p>响应状态</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response: ",
+          "content": "HTTP/1.1 200 OK \n{\n   \"responseTime\": \"2019-01-29T11:31:17.026+0000\",\n   \"code\": \"000000\",\n   \"status\": \"200\",\n   \"msg\": \"请求成功\",\n   \"data\": [\n     {\n       \"name\": \"我是一个配件\",\n       \"life\": 201,\n       \"earlyWarningLife\": 21,\n       \"currLife\": 100,\n       \"status\": \"NORMAL\",\n       \"materialId\": \"bf12b21737c74ef3\"\n     },\n     {\n       \"name\": \"强通透滤芯\",\n       \"life\": 202,\n       \"earlyWarningLife\": 22,\n       \"currLife\": 105,\n       \"status\": \"EXPIRING\",\n       \"materialId\": \"97a75ee3e03f4383\"\n     }\n   ]\n }",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "错误码详情": [
+          {
+            "group": "errorCode",
+            "type": "string",
+            "optional": false,
+            "field": "20210001",
+            "description": "<p>id为空</p>"
+          },
+          {
+            "group": "errorCode",
+            "type": "string",
+            "optional": false,
+            "field": "20210010",
+            "description": "<p>查询所有设备耗材失败</p>"
+          },
+          {
+            "group": "errorCode",
+            "type": "string",
+            "optional": false,
+            "field": "20210011",
+            "description": "<p>查询产品部件失败</p>"
+          },
+          {
+            "group": "errorCode",
+            "type": "string",
+            "optional": false,
+            "field": "000000",
+            "description": "<p>请求成功</p>"
+          }
+        ],
+        "错误格式说明": [
+          {
+            "group": "errorFormat",
+            "type": "string",
+            "optional": false,
+            "field": "msg",
+            "description": "<p>接口返回的错误信息</p>"
+          },
+          {
+            "group": "errorFormat",
+            "type": "string",
+            "optional": false,
+            "field": "code",
+            "description": "<p>错误码</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "{\n    \"responseTime\": \"2019-01-02T09:47:15.032+0000\",\n    \"code\": \"20107007\",\n    \"status\": \"200\",\n    \"msg\": \"fail to add account period\",\n    \"data\": null\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/main/java/cn/xlink/cloud/rent/rest/controller/RentDeviceController.java",
+    "groupTitle": "RentDeviceController",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "Access-Token",
+            "description": "<p>xlink平台颁发的凭证</p>"
+          },
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "Content-Type",
+            "description": "<p>application/json</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Header-Example:",
+          "content": "{\n\"Access-Token\":\"访问凭证\",\n\"Content-Type\":\"application/json\"\n}",
+          "type": "json"
+        }
+      ]
+    }
+  },
+  {
+    "type": "POST",
     "url": "/v1/xlink-rent-rest/rentDeviceRest/listDeviceServicePacks/{deviceId}",
     "title": "查询租赁设备关联服务包",
     "name": "listDeviceServicePacks",
@@ -1168,7 +1652,7 @@ define({ "api": [
             "type": "string",
             "optional": false,
             "field": "data.status",
-            "description": "<p>服务包状态</p>"
+            "description": "<p>服务包状态 HAS_ENDED(已结束) IN_USE(使用中)</p>"
           },
           {
             "group": "Success 200",
@@ -1366,6 +1850,13 @@ define({ "api": [
             "optional": true,
             "field": "query.productName",
             "description": "<p>产品名</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": true,
+            "field": "query.status",
+            "description": "<p>设备状态 PENDING_RENT(待租赁) PENDING_ACTIVATION(待激活) LEASING(租赁中) RETURN_FACTORY(待返厂) WAITING_ENTRY(待入厂) PENDING_STORAGE(待入仓)</p>"
           }
         ]
       },
