@@ -1,5 +1,328 @@
 [
   {
+    "type": "POST",
+    "url": "/v1/xlink-rent-rest/leaseServiceRest/addLeaseServiceOrder",
+    "title": "创建租约服务订单",
+    "name": "addLeaseServiceOrder",
+    "group": "LeaseServiceRestController",
+    "description": "<p>创建租约服务订单</p>",
+    "permission": [
+      {
+        "name": "userOnly"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "deviceId",
+            "description": "<p>设备标识</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "deviceSn",
+            "description": "<p>设备sn</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "rentPeriod",
+            "description": "<p>租期</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "array(object)",
+            "optional": false,
+            "field": "saleRentSerivcePacks",
+            "description": "<p>服务包</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "decimal(string)",
+            "optional": false,
+            "field": "saleRentSerivcePacks.amount",
+            "description": "<p>金额</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "saleRentSerivcePacks.number",
+            "description": "<p>数量</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "saleRentSerivcePacks.packId",
+            "description": "<p>服务包标识</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "saleRentSerivcePacks.packName",
+            "description": "<p>服务包名称</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "saleRentSerivcePacks.packOrder",
+            "description": "<p>服务包序号 从1开始</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "saleRentSerivcePacks.packPeriod",
+            "description": "<p>服务包期限</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "saleRentSerivcePacks.packPn",
+            "description": "<p>服务包料号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "saleRentSerivcePacks.unit",
+            "description": "<p>单位</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "decimal(string)",
+            "optional": false,
+            "field": "saleRentSerivcePacks.unitPrice",
+            "description": "<p>单价</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n  \"deviceId\": \"string\",\n  \"deviceSn\": \"string\",\n  \"rentPeriod\": 0,\n  \"saleRentSerivcePacks\": [\n    {\n      \"amount\": 0,\n      \"number\": 0,\n      \"packId\": \"string\",\n      \"packName\": \"string\",\n      \"packOrder\": 0,\n      \"packPeriod\": 0,\n      \"packPn\": \"string\",\n      \"unit\": \"TAI\",\n      \"unitPrice\": 0\n    }\n  ]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "code",
+            "description": "<p>返回编码</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data",
+            "description": "<p>返回数据 租约服务订单标识</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "msg",
+            "description": "<p>返回信息</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "responseTime",
+            "description": "<p>返回响应时间</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "status",
+            "description": "<p>响应状态</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response: ",
+          "content": "{\n  \"code\": \"string\",\n  \"data\": \"string\",\n  \"msg\": \"string\",\n  \"responseTime\": \"2019-02-13T08:29:18.345Z\",\n  \"status\": \"string\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/main/java/cn/xlink/cloud/rent/rest/controller/LeaseServiceRestController.java",
+    "groupTitle": "LeaseServiceRestController",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "Access-Token",
+            "description": "<p>xlink平台颁发的凭证</p>"
+          },
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "Content-Type",
+            "description": "<p>application/json</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Header-Example:",
+          "content": "{\n\"Access-Token\":\"访问凭证\",\n\"Content-Type\":\"application/json\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "错误格式说明": [
+          {
+            "group": "errorFormat",
+            "type": "string",
+            "optional": false,
+            "field": "msg",
+            "description": "<p>接口返回的错误信息</p>"
+          },
+          {
+            "group": "errorFormat",
+            "type": "string",
+            "optional": false,
+            "field": "code",
+            "description": "<p>错误码</p>"
+          }
+        ],
+        "错误码详情": [
+          {
+            "group": "errorCode",
+            "type": "string",
+            "optional": false,
+            "field": "000000",
+            "description": "<p>请求成功</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "{\n    \"responseTime\": \"2019-01-02T09:47:15.032+0000\",\n    \"code\": \"20107007\",\n    \"status\": \"200\",\n    \"msg\": \"fail to add account period\",\n    \"data\": null\n}",
+          "type": "json"
+        }
+      ]
+    }
+  },
+  {
+    "type": "POST",
+    "url": "/v1/xlink-rent-rest/leaseServiceRest/batAddLeaseServiceOrder",
+    "title": "批量导入租约服务单",
+    "name": "batAddLeaseServiceOrder",
+    "group": "LeaseServiceRestController",
+    "description": "<p>批量导入租约服务单</p>",
+    "permission": [
+      {
+        "name": "userOnly"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "file",
+            "optional": false,
+            "field": "filename",
+            "description": "<p>文件</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "src/main/java/cn/xlink/cloud/rent/rest/controller/LeaseServiceRestController.java",
+    "groupTitle": "LeaseServiceRestController",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "Access-Token",
+            "description": "<p>xlink平台颁发的凭证</p>"
+          },
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "Content-Type",
+            "description": "<p>application/json</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Header-Example:",
+          "content": "{\n\"Access-Token\":\"访问凭证\",\n\"Content-Type\":\"application/json\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "错误格式说明": [
+          {
+            "group": "errorFormat",
+            "type": "string",
+            "optional": false,
+            "field": "msg",
+            "description": "<p>接口返回的错误信息</p>"
+          },
+          {
+            "group": "errorFormat",
+            "type": "string",
+            "optional": false,
+            "field": "code",
+            "description": "<p>错误码</p>"
+          }
+        ],
+        "错误码详情": [
+          {
+            "group": "errorCode",
+            "type": "string",
+            "optional": false,
+            "field": "000000",
+            "description": "<p>请求成功</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "{\n    \"responseTime\": \"2019-01-02T09:47:15.032+0000\",\n    \"code\": \"20107007\",\n    \"status\": \"200\",\n    \"msg\": \"fail to add account period\",\n    \"data\": null\n}",
+          "type": "json"
+        }
+      ]
+    }
+  },
+  {
     "type": "GET",
     "url": "/v1/xlink-rent-rest/leaseServiceRest/getLeaseServiceInfo/{id}",
     "title": "获取租约服务单信息",
@@ -782,6 +1105,153 @@
             "optional": false,
             "field": "20210005",
             "description": "<p>查询设备租赁失败</p>"
+          },
+          {
+            "group": "errorCode",
+            "type": "string",
+            "optional": false,
+            "field": "000000",
+            "description": "<p>请求成功</p>"
+          }
+        ],
+        "错误格式说明": [
+          {
+            "group": "errorFormat",
+            "type": "string",
+            "optional": false,
+            "field": "msg",
+            "description": "<p>接口返回的错误信息</p>"
+          },
+          {
+            "group": "errorFormat",
+            "type": "string",
+            "optional": false,
+            "field": "code",
+            "description": "<p>错误码</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "{\n    \"responseTime\": \"2019-01-02T09:47:15.032+0000\",\n    \"code\": \"20107007\",\n    \"status\": \"200\",\n    \"msg\": \"fail to add account period\",\n    \"data\": null\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/main/java/cn/xlink/cloud/rent/rest/controller/RentDeviceController.java",
+    "groupTitle": "RentDeviceController",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "Access-Token",
+            "description": "<p>xlink平台颁发的凭证</p>"
+          },
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "Content-Type",
+            "description": "<p>application/json</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Header-Example:",
+          "content": "{\n\"Access-Token\":\"访问凭证\",\n\"Content-Type\":\"application/json\"\n}",
+          "type": "json"
+        }
+      ]
+    }
+  },
+  {
+    "type": "POST",
+    "url": "/v1/xlink-rent-rest/rentDeviceRest/getDeviceLeaseEndTime/{deviceSn}",
+    "title": "获取设备租期结束时间",
+    "name": "getDeviceLeaseEndTime",
+    "group": "RentDeviceController",
+    "description": "<p>获取设备租期结束时间</p>",
+    "permission": [
+      {
+        "name": "userOnly"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "deviceSn",
+            "description": "<p>设备sn</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "code",
+            "description": "<p>返回编码</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "long",
+            "optional": false,
+            "field": "data",
+            "description": "<p>返回数据 设备租期结束时间（毫秒）</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "msg",
+            "description": "<p>返回信息</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "responseTime",
+            "description": "<p>返回响应时间</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "status",
+            "description": "<p>响应状态</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response: ",
+          "content": "{\n  \"code\": \"string\",\n  \"data\": 0,\n  \"msg\": \"string\",\n  \"responseTime\": \"2019-02-13T08:23:31.379Z\",\n  \"status\": \"string\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "错误码详情": [
+          {
+            "group": "errorCode",
+            "type": "string",
+            "optional": false,
+            "field": "20210015",
+            "description": "<p>设备sn为空</p>"
           },
           {
             "group": "errorCode",
@@ -2062,6 +2532,98 @@
         {
           "title": "Header-Example:",
           "content": "{\n\"Access-Token\":\"访问凭证\",\n\"Content-Type\":\"application/json\"\n}",
+          "type": "json"
+        }
+      ]
+    }
+  },
+  {
+    "type": "POST",
+    "url": "/v1/xlink-rent-rest/saleRentOrderRest/batchCreateCivilSaleRentOrder",
+    "title": "批量创建民用售租订单",
+    "name": "batchCreateCivilSaleRentOrder",
+    "group": "SaleRentOrderRestController",
+    "description": "<p>批量创建民用售租订单</p>",
+    "permission": [
+      {
+        "name": "userOnly"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "file",
+            "optional": false,
+            "field": "filename",
+            "description": "<p>文件</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "src/main/java/cn/xlink/cloud/rent/rest/controller/SaleRentOrderRestController.java",
+    "groupTitle": "SaleRentOrderRestController",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "Access-Token",
+            "description": "<p>xlink平台颁发的凭证</p>"
+          },
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "Content-Type",
+            "description": "<p>application/json</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Header-Example:",
+          "content": "{\n\"Access-Token\":\"访问凭证\",\n\"Content-Type\":\"application/json\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "错误格式说明": [
+          {
+            "group": "errorFormat",
+            "type": "string",
+            "optional": false,
+            "field": "msg",
+            "description": "<p>接口返回的错误信息</p>"
+          },
+          {
+            "group": "errorFormat",
+            "type": "string",
+            "optional": false,
+            "field": "code",
+            "description": "<p>错误码</p>"
+          }
+        ],
+        "错误码详情": [
+          {
+            "group": "errorCode",
+            "type": "string",
+            "optional": false,
+            "field": "000000",
+            "description": "<p>请求成功</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "{\n    \"responseTime\": \"2019-01-02T09:47:15.032+0000\",\n    \"code\": \"20107007\",\n    \"status\": \"200\",\n    \"msg\": \"fail to add account period\",\n    \"data\": null\n}",
           "type": "json"
         }
       ]
