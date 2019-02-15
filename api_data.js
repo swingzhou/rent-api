@@ -2620,6 +2620,13 @@ define({ "api": [
             "group": "errorCode",
             "type": "string",
             "optional": false,
+            "field": "10000003",
+            "description": "<p>查询字段为空</p>"
+          },
+          {
+            "group": "errorCode",
+            "type": "string",
+            "optional": false,
             "field": "20210002",
             "description": "<p>分页查询设备管理失败</p>"
           },
@@ -4227,7 +4234,7 @@ define({ "api": [
             "type": "int",
             "optional": false,
             "field": "productPacks.saleRentSerivcePack.packPeriod",
-            "description": "<p>服务包权限</p>"
+            "description": "<p>服务包权限 单位为年</p>"
           },
           {
             "group": "Parameter",
@@ -4248,7 +4255,7 @@ define({ "api": [
             "type": "string",
             "optional": false,
             "field": "productPacks.saleRentSerivcePack.packOrder",
-            "description": "<p>服务包序号</p>"
+            "description": "<p>服务包序号 从1开始</p>"
           },
           {
             "group": "Parameter",
