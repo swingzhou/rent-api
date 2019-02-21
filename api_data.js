@@ -4296,7 +4296,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "markerCenterId",
+            "field": "marketCenterId",
             "description": "<p>营销中心标识</p>"
           },
           {
