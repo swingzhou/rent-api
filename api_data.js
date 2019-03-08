@@ -255,6 +255,40 @@ define({ "api": [
         ]
       }
     },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "array(string)",
+            "optional": false,
+            "field": "failInfo",
+            "description": "<p>失败信息</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "boolean",
+            "optional": false,
+            "field": "success",
+            "description": "<p>是否全部成功</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "array(string)",
+            "optional": false,
+            "field": "successInfo",
+            "description": "<p>成功信息</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response: ",
+          "content": "{\n  \"failInfo\": [\n    \"string\"\n  ],\n  \"success\": true,\n  \"successInfo\": [\n    \"string\"\n  ]\n}",
+          "type": "json"
+        }
+      ]
+    },
     "version": "0.0.0",
     "filename": "src/main/java/cn/xlink/cloud/rent/rest/controller/LeaseServiceRestController.java",
     "groupTitle": "LeaseServiceRestController",
@@ -3033,6 +3067,40 @@ define({ "api": [
           }
         ]
       }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "array(string)",
+            "optional": false,
+            "field": "failInfo",
+            "description": "<p>失败信息</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "boolean",
+            "optional": false,
+            "field": "success",
+            "description": "<p>是否全部成功</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "array(string)",
+            "optional": false,
+            "field": "successInfo",
+            "description": "<p>成功信息</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response: ",
+          "content": "{\n  \"failInfo\": [\n    \"string\"\n  ],\n  \"success\": true,\n  \"successInfo\": [\n    \"string\"\n  ]\n}",
+          "type": "json"
+        }
+      ]
     },
     "version": "0.0.0",
     "filename": "src/main/java/cn/xlink/cloud/rent/rest/controller/SaleRentOrderRestController.java",
