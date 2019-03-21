@@ -1017,7 +1017,7 @@
   },
   {
     "type": "POST",
-    "url": "/v1/xlink-rent-rest/adjustLeaseRest/listListAdjustLeases",
+    "url": "/v1/xlink-rent-rest/adjustLeaseRest/listAdjustLeases",
     "title": "分页查询租约调整单",
     "name": "listAdjustLease",
     "group": "AdjustLeaseController",
@@ -1500,189 +1500,7 @@
   },
   {
     "type": "GET",
-    "url": "/v1/XLINK-RENT-REST/ChangeDeviceOrderController/listOrderStatusDetails?rentOrderId=$\\{rentOrderId\\}",
-    "title": "获取直租订单状态明细列表",
-    "name": "listOrderStatusDetails",
-    "group": "ChangeDeviceOrderController",
-    "description": "<p>获取直租订单状态明细列表</p>",
-    "permission": [
-      {
-        "name": "userOnly"
-      }
-    ],
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": false,
-            "field": "rentOrderId",
-            "description": "<p>直租订单标识</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "fields": {
-        "Success 200": [
-          {
-            "group": "Success 200",
-            "type": "string",
-            "optional": false,
-            "field": "code",
-            "description": "<p>返回编码</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "array(object)",
-            "optional": false,
-            "field": "data",
-            "description": "<p>返回数据</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "long",
-            "optional": false,
-            "field": "data.createDate",
-            "description": "<p>创建日期</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "string",
-            "optional": false,
-            "field": "data.createMan",
-            "description": "<p>创建者标识</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "string",
-            "optional": false,
-            "field": "data.createManName",
-            "description": "<p>创建者标识</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "boolean",
-            "optional": false,
-            "field": "data.finished",
-            "description": "<p>操作类型是否已终止</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "string",
-            "optional": false,
-            "field": "data.operStatus",
-            "description": "<p>操作状态   订单创建ORDER_CREATE/待审核PENDING_CHECK(1)/审核完成CHECKED(2)/待出货(未出货)PENDING_SHIP/ 待出货(出货中)SHIPPING/订单关闭(手动关闭)ORDER_CLOSE/订单关闭(审核拒绝)CHECK_REFUSE/出货完成SHIPPED/待出货WAIT_SHIP</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "string",
-            "optional": false,
-            "field": "data.operType",
-            "description": "<p>操作类型   创建CREATE/审核CHECK/出货SHIP</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "string",
-            "optional": false,
-            "field": "msg",
-            "description": "<p>返回信息</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "string",
-            "optional": false,
-            "field": "responseTime",
-            "description": "<p>返回响应时间</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "string",
-            "optional": false,
-            "field": "status",
-            "description": "<p>响应状态</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "{\n \"code\": \"string\",\n \"data\": [\n   {\n     \"createDate\": 0,\n     \"createMan\": \"string\",\n     \"createManName\": \"string\",\n     \"finished\": true,\n     \"operStatus\": \"ORDER_CREATE\",\n     \"operType\": \"CREATE\"\n   }\n ],\n \"msg\": \"string\",\n \"responseTime\": \"2019-03-14T03:24:33.340Z\",\n \"status\": \"string\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/main/java/cn/xlink/cloud/rent/rest/controller/DirectRentOrderRestController.java",
-    "groupTitle": "ChangeDeviceOrderController",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "string",
-            "optional": false,
-            "field": "Access-Token",
-            "description": "<p>xlink平台颁发的凭证</p>"
-          },
-          {
-            "group": "Header",
-            "type": "string",
-            "optional": false,
-            "field": "Content-Type",
-            "description": "<p>application/json</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Header-Example:",
-          "content": "{\n\"Access-Token\":\"访问凭证\",\n\"Content-Type\":\"application/json\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "error": {
-      "fields": {
-        "错误格式说明": [
-          {
-            "group": "errorFormat",
-            "type": "string",
-            "optional": false,
-            "field": "msg",
-            "description": "<p>接口返回的错误信息</p>"
-          },
-          {
-            "group": "errorFormat",
-            "type": "string",
-            "optional": false,
-            "field": "code",
-            "description": "<p>错误码</p>"
-          }
-        ],
-        "错误码详情": [
-          {
-            "group": "errorCode",
-            "type": "string",
-            "optional": false,
-            "field": "000000",
-            "description": "<p>请求成功</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Error-Response:",
-          "content": "{\n    \"responseTime\": \"2019-01-02T09:47:15.032+0000\",\n    \"code\": \"20107007\",\n    \"status\": \"200\",\n    \"msg\": \"fail to add account period\",\n    \"data\": null\n}",
-          "type": "json"
-        }
-      ]
-    }
-  },
-  {
-    "type": "GET",
-    "url": "/v1/xlink-rent-rest/directRentOrderRest/closeDirectRentOrder/{rentOrderId}?rentOrderId=$\\{rentOrderId\\}",
+    "url": "/v1/xlink-rent-rest/directRentOrderRest/closeDirectRentOrder/{rentOrderId}",
     "title": "关闭直租订单",
     "name": "closeDirectRentOrder",
     "group": "DirectRentOrderRestController",
@@ -2236,7 +2054,7 @@
   },
   {
     "type": "GET",
-    "url": "/v1/xlink-rent-rest/directRentOrderRest/getDirectRentOrderDetail/{rentOrderId}?rentOrderId=$\\{rentOrderId\\}",
+    "url": "/v1/xlink-rent-rest/directRentOrderRest/getDirectRentOrderDetail/{rentOrderId}",
     "title": "查询直租订单详情",
     "name": "getDirectRentOrderDetail",
     "group": "DirectRentOrderRestController",
@@ -2593,7 +2411,308 @@
   },
   {
     "type": "GET",
-    "url": "/v1/xlink-rent-rest/directRentOrderRest/listCheckStatus/{checkId}?checkId=$\\{checkId\\}",
+    "url": "/v1/xlink-rent-rest/directRentOrderRest/getOrderAccountInfoByOrderId/{rentOrderId}",
+    "title": "根据直租订单标识获取直租订单账期相关信息",
+    "name": "getOrderAccountInfoByOrderId",
+    "group": "DirectRentOrderRestController",
+    "description": "<p>根据直租订单标识获取直租订单账期相关信息</p>",
+    "permission": [
+      {
+        "name": "userOnly"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "rentOrderId",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "code",
+            "description": "<p>返回编码</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "object",
+            "optional": false,
+            "field": "data",
+            "description": "<p>返回数据</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data.accountPeriodId",
+            "description": "<p>账期编号</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "decimal(string)",
+            "optional": false,
+            "field": "data.amount",
+            "description": "<p>账期总额</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "long",
+            "optional": false,
+            "field": "data.endDate",
+            "description": "<p>账期结束日期</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data.id",
+            "description": "<p>订单账期标识</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data.name",
+            "description": "<p>账期名称</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "array(object)",
+            "optional": false,
+            "field": "data.orderAccountPeriodDetailVos",
+            "description": "<p>订单账期详情列表</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "decimal(string)",
+            "optional": false,
+            "field": "data.orderAccountPeriodDetailVos.acceptMoney",
+            "description": "<p>已回款</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data.orderAccountPeriodDetailVos.id",
+            "description": "<p>订单账期详情标识</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data.orderAccountPeriodDetailVos.orderAccountId",
+            "description": "<p>订单账期标识</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "long",
+            "optional": false,
+            "field": "data.orderAccountPeriodDetailVos.payDate",
+            "description": "<p>回款日期</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "decimal(string)",
+            "optional": false,
+            "field": "data.orderAccountPeriodDetailVos.payMoney",
+            "description": "<p>账期金额</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "data.orderAccountPeriodDetailVos.payNode",
+            "description": "<p>回款节点</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "decimal(string)",
+            "optional": false,
+            "field": "data.orderAccountPeriodDetailVos.payRadio",
+            "description": "<p>回款比例</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "data.orderAccountPeriodDetailVos.periodOrder",
+            "description": "<p>期数</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data.orderAccountPeriodDetailVos.status",
+            "description": "<p>订单账期明细状态   未开始NOT_START/已完成FINISHED/近期回款NEAR_BACK/已逾期EXPIRE</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "long",
+            "optional": false,
+            "field": "data.orderAccountPeriodDetailVos.statusDate",
+            "description": "<p>状态更新时间</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data.orderId",
+            "description": "<p>订单标识</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "data.period",
+            "description": "<p>账期期限</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "decimal(string)",
+            "optional": false,
+            "field": "data.receivedMoney",
+            "description": "<p>已回款金额</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "decimal(string)",
+            "optional": false,
+            "field": "data.remainedMoney",
+            "description": "<p>未回款金额</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "long",
+            "optional": false,
+            "field": "data.startDate",
+            "description": "<p>账期起始日期</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data.status",
+            "description": "<p>订单账期状态  进行中RUNNING/已完成FINISHED/已关闭CLOSED/已逾期EXPIRED</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "long",
+            "optional": false,
+            "field": "data.statusDate",
+            "description": "<p>状态更新时间</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "msg",
+            "description": "<p>返回信息</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "responseTime",
+            "description": "<p>返回响应时间</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "status",
+            "description": "<p>响应状态</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n \"code\": \"string\",\n \"data\": {\n   \"accountPeriodId\": \"string\",\n   \"amount\": 0,\n   \"endDate\": 0,\n   \"id\": \"string\",\n   \"name\": \"string\",\n   \"orderAccountPeriodDetailVos\": [\n     {\n       \"acceptMoney\": 0,\n       \"id\": \"string\",\n       \"orderAccountId\": \"string\",\n       \"payDate\": 0,\n       \"payMoney\": 0,\n       \"payNode\": 0,\n       \"payRadio\": 0,\n       \"periodOrder\": 0,\n       \"status\": \"NOT_START\",\n       \"statusDate\": 0\n     }\n   ],\n   \"orderId\": \"string\",\n   \"period\": 0,\n   \"receivedMoney\": 0,\n   \"remainedMoney\": 0,\n   \"startDate\": 0,\n   \"status\": \"RUNNING\",\n   \"statusDate\": 0\n },\n \"msg\": \"string\",\n \"responseTime\": \"2019-03-14T03:58:01.496Z\",\n \"status\": \"string\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/main/java/cn/xlink/cloud/rent/rest/controller/DirectRentOrderRestController.java",
+    "groupTitle": "DirectRentOrderRestController",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "Access-Token",
+            "description": "<p>xlink平台颁发的凭证</p>"
+          },
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "Content-Type",
+            "description": "<p>application/json</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Header-Example:",
+          "content": "{\n\"Access-Token\":\"访问凭证\",\n\"Content-Type\":\"application/json\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "错误格式说明": [
+          {
+            "group": "errorFormat",
+            "type": "string",
+            "optional": false,
+            "field": "msg",
+            "description": "<p>接口返回的错误信息</p>"
+          },
+          {
+            "group": "errorFormat",
+            "type": "string",
+            "optional": false,
+            "field": "code",
+            "description": "<p>错误码</p>"
+          }
+        ],
+        "错误码详情": [
+          {
+            "group": "errorCode",
+            "type": "string",
+            "optional": false,
+            "field": "000000",
+            "description": "<p>请求成功</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "{\n    \"responseTime\": \"2019-01-02T09:47:15.032+0000\",\n    \"code\": \"20107007\",\n    \"status\": \"200\",\n    \"msg\": \"fail to add account period\",\n    \"data\": null\n}",
+          "type": "json"
+        }
+      ]
+    }
+  },
+  {
+    "type": "GET",
+    "url": "/v1/xlink-rent-rest/directRentOrderRest/listCheckStatus/{checkId}",
     "title": "获取直租订单审核状态明细列表",
     "name": "listCheckStatus",
     "group": "DirectRentOrderRestController",
@@ -3297,6 +3416,762 @@
         {
           "title": "Success-Response:",
           "content": "{\n \"code\": \"string\",\n \"data\": {\n   \"count\": 0,\n   \"list\": [\n     {\n       \"activateTime\": 0,\n       \"deviceId\": \"string\",\n       \"deviceSN\": \"string\",\n       \"productId\": \"string\",\n       \"productName\": \"string\",\n       \"remainPeriod\": 0,\n       \"rentStatus\": 0\n     }\n   ]\n },\n \"msg\": \"string\",\n \"responseTime\": \"2019-03-14T04:05:31.006Z\",\n \"status\": \"string\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/main/java/cn/xlink/cloud/rent/rest/controller/DirectRentOrderRestController.java",
+    "groupTitle": "DirectRentOrderRestController",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "Access-Token",
+            "description": "<p>xlink平台颁发的凭证</p>"
+          },
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "Content-Type",
+            "description": "<p>application/json</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Header-Example:",
+          "content": "{\n\"Access-Token\":\"访问凭证\",\n\"Content-Type\":\"application/json\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "错误格式说明": [
+          {
+            "group": "errorFormat",
+            "type": "string",
+            "optional": false,
+            "field": "msg",
+            "description": "<p>接口返回的错误信息</p>"
+          },
+          {
+            "group": "errorFormat",
+            "type": "string",
+            "optional": false,
+            "field": "code",
+            "description": "<p>错误码</p>"
+          }
+        ],
+        "错误码详情": [
+          {
+            "group": "errorCode",
+            "type": "string",
+            "optional": false,
+            "field": "000000",
+            "description": "<p>请求成功</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "{\n    \"responseTime\": \"2019-01-02T09:47:15.032+0000\",\n    \"code\": \"20107007\",\n    \"status\": \"200\",\n    \"msg\": \"fail to add account period\",\n    \"data\": null\n}",
+          "type": "json"
+        }
+      ]
+    }
+  },
+  {
+    "type": "POST",
+    "url": "/v1/xlink-rent-rest/directRentOrderRest/listExtendOrderInfo",
+    "title": "获取延伸订单信息列表",
+    "name": "listExtendOrderInfo",
+    "group": "DirectRentOrderRestController",
+    "description": "<p>获取延伸订单信息列表</p>",
+    "permission": [
+      {
+        "name": "userOnly"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "page",
+            "description": "<p>页码，从1开始</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "size",
+            "description": "<p>每页大小</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "array(object)",
+            "optional": true,
+            "field": "sort",
+            "description": "<p>排序对象</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "object",
+            "optional": false,
+            "field": "query",
+            "description": "<p>查询对象</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "query.orderId",
+            "description": "<p>订单标识</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "query.orderType",
+            "description": "<p>订单类型</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "query.productId",
+            "description": "<p>产品标识</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "query.handleStatus",
+            "description": "<p>处理状态</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "long",
+            "optional": false,
+            "field": "query.createDateStart",
+            "description": "<p>创建日期起点</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "long",
+            "optional": false,
+            "field": "query.createDateEnd",
+            "description": "<p>创建日期终点</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "query.deviceSN",
+            "description": "<p>设备SN</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n \"page\": 0,\n \"query\": {\n   \"createDateEnd\": 0,\n   \"createDateStart\": 0,\n   \"deviceSN\": \"string\",\n   \"handleStatus\": 0,\n   \"orderId\": \"string\",\n   \"orderType\": 0,\n   \"productId\": \"string\"\n },\n \"size\": 0,\n \"sort\": [\n   {\n     \"createDate\": \"desc\"\n   }\n ]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "code",
+            "description": "<p>返回编码</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "object",
+            "optional": false,
+            "field": "data",
+            "description": "<p>返回数据</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "long",
+            "optional": false,
+            "field": "data.count",
+            "description": "<p>总数</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "array(object)",
+            "optional": false,
+            "field": "data.list",
+            "description": "<p>数据列表</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "long",
+            "optional": false,
+            "field": "data.list.createDate",
+            "description": "<p>创建日期</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data.list.deviceId",
+            "description": "<p>设备标识</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data.list.deviceSN",
+            "description": "<p>设备SN</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data.list.extendOrderId",
+            "description": "<p>延伸订单号</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "data.list.orderType",
+            "description": "<p>订单类型</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data.list.productId",
+            "description": "<p>产品标识</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data.list.productName",
+            "description": "<p>产品名称</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "data.list.status",
+            "description": "<p>状态</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "msg",
+            "description": "<p>返回信息</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "responseTime",
+            "description": "<p>返回响应时间</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "status",
+            "description": "<p>响应状态</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n \"code\": \"string\",\n \"data\": {\n   \"count\": 0,\n   \"list\": [\n     {\n       \"createDate\": 0,\n       \"deviceId\": \"string\",\n       \"deviceSN\": \"string\",\n       \"extendOrderId\": \"string\",\n       \"orderType\": 0,\n       \"productId\": \"string\",\n       \"productName\": \"string\",\n       \"status\": 0\n     }\n   ]\n },\n \"msg\": \"string\",\n \"responseTime\": \"2019-03-14T06:32:07.324Z\",\n \"status\": \"string\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/main/java/cn/xlink/cloud/rent/rest/controller/DirectRentOrderRestController.java",
+    "groupTitle": "DirectRentOrderRestController",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "Access-Token",
+            "description": "<p>xlink平台颁发的凭证</p>"
+          },
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "Content-Type",
+            "description": "<p>application/json</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Header-Example:",
+          "content": "{\n\"Access-Token\":\"访问凭证\",\n\"Content-Type\":\"application/json\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "错误格式说明": [
+          {
+            "group": "errorFormat",
+            "type": "string",
+            "optional": false,
+            "field": "msg",
+            "description": "<p>接口返回的错误信息</p>"
+          },
+          {
+            "group": "errorFormat",
+            "type": "string",
+            "optional": false,
+            "field": "code",
+            "description": "<p>错误码</p>"
+          }
+        ],
+        "错误码详情": [
+          {
+            "group": "errorCode",
+            "type": "string",
+            "optional": false,
+            "field": "000000",
+            "description": "<p>请求成功</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "{\n    \"responseTime\": \"2019-01-02T09:47:15.032+0000\",\n    \"code\": \"20107007\",\n    \"status\": \"200\",\n    \"msg\": \"fail to add account period\",\n    \"data\": null\n}",
+          "type": "json"
+        }
+      ]
+    }
+  },
+  {
+    "type": "GET",
+    "url": "/v1/xlink-rent-rest/directRentOrderRest/listOrderStatusDetails/{rentOrderId}",
+    "title": "获取直租订单状态明细列表",
+    "name": "listOrderStatusDetails",
+    "group": "DirectRentOrderRestController",
+    "description": "<p>获取直租订单状态明细列表</p>",
+    "permission": [
+      {
+        "name": "userOnly"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "rentOrderId",
+            "description": "<p>直租订单标识</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "code",
+            "description": "<p>返回编码</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "array(object)",
+            "optional": false,
+            "field": "data",
+            "description": "<p>返回数据</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "long",
+            "optional": false,
+            "field": "data.createDate",
+            "description": "<p>创建日期</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data.createMan",
+            "description": "<p>创建者标识</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data.createManName",
+            "description": "<p>创建者标识</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "boolean",
+            "optional": false,
+            "field": "data.finished",
+            "description": "<p>操作类型是否已终止</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data.operStatus",
+            "description": "<p>操作状态   订单创建ORDER_CREATE/待审核PENDING_CHECK(1)/审核完成CHECKED(2)/待出货(未出货)PENDING_SHIP/ 待出货(出货中)SHIPPING/订单关闭(手动关闭)ORDER_CLOSE/订单关闭(审核拒绝)CHECK_REFUSE/出货完成SHIPPED/待出货WAIT_SHIP</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data.operType",
+            "description": "<p>操作类型   创建CREATE/审核CHECK/出货SHIP</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "msg",
+            "description": "<p>返回信息</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "responseTime",
+            "description": "<p>返回响应时间</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "status",
+            "description": "<p>响应状态</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response: ",
+          "content": "{\n \"code\": \"string\",\n \"data\": [\n   {\n     \"createDate\": 0,\n     \"createMan\": \"string\",\n     \"createManName\": \"string\",\n     \"finished\": true,\n     \"operStatus\": \"ORDER_CREATE\",\n     \"operType\": \"CREATE\"\n   }\n ],\n \"msg\": \"string\",\n \"responseTime\": \"2019-03-14T03:24:33.340Z\",\n \"status\": \"string\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/main/java/cn/xlink/cloud/rent/rest/controller/DirectRentOrderRestController.java",
+    "groupTitle": "DirectRentOrderRestController",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "Access-Token",
+            "description": "<p>xlink平台颁发的凭证</p>"
+          },
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "Content-Type",
+            "description": "<p>application/json</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Header-Example:",
+          "content": "{\n\"Access-Token\":\"访问凭证\",\n\"Content-Type\":\"application/json\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "错误格式说明": [
+          {
+            "group": "errorFormat",
+            "type": "string",
+            "optional": false,
+            "field": "msg",
+            "description": "<p>接口返回的错误信息</p>"
+          },
+          {
+            "group": "errorFormat",
+            "type": "string",
+            "optional": false,
+            "field": "code",
+            "description": "<p>错误码</p>"
+          }
+        ],
+        "错误码详情": [
+          {
+            "group": "errorCode",
+            "type": "string",
+            "optional": false,
+            "field": "000000",
+            "description": "<p>请求成功</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "{\n    \"responseTime\": \"2019-01-02T09:47:15.032+0000\",\n    \"code\": \"20107007\",\n    \"status\": \"200\",\n    \"msg\": \"fail to add account period\",\n    \"data\": null\n}",
+          "type": "json"
+        }
+      ]
+    }
+  },
+  {
+    "type": "POST",
+    "url": "/v1/xlink-rent-rest/directRentOrderRest/listThrowChangeRecord",
+    "title": "获取直租订单退换记录列表",
+    "name": "listThrowChangeRecord",
+    "group": "DirectRentOrderRestController",
+    "description": "<p>获取直租订单退换记录列表</p>",
+    "permission": [
+      {
+        "name": "userOnly"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "page",
+            "description": "<p>页码，从1开始</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "size",
+            "description": "<p>每页大小</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "array(object)",
+            "optional": true,
+            "field": "sort",
+            "description": "<p>排序对象</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "object",
+            "optional": false,
+            "field": "query",
+            "description": "<p>查询对象</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "query.orderId",
+            "description": "<p>订单标识</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "query.billType",
+            "description": "<p>单据类型</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "query.productId",
+            "description": "<p>产品标识</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "query.productName",
+            "description": "<p>产品名称</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "query.handleStatus",
+            "description": "<p>处理状态</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "long",
+            "optional": false,
+            "field": "query.createDateStart",
+            "description": "<p>创建日期起点</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "long",
+            "optional": false,
+            "field": "query.createDateEnd",
+            "description": "<p>创建日期终点</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n \"page\": 0,\n \"query\": {\n   \"billType\": 0,\n   \"createDateEnd\": 0,\n   \"createDateStart\": 0,\n   \"handleStatus\": 0,\n   \"orderId\": \"string\",\n   \"productId\": \"string\",\n   \"productName\": \"string\"\n },\n \"size\": 0,\n \"sort\": [\n   {\n     \"createDate\": \"desc\"\n   }\n ]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "code",
+            "description": "<p>返回编码</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "object",
+            "optional": false,
+            "field": "data",
+            "description": "<p>返回数据</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "long",
+            "optional": false,
+            "field": "data.count",
+            "description": "<p>总数</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "array(object)",
+            "optional": false,
+            "field": "data.list",
+            "description": "<p>数据列表</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data.list.billId",
+            "description": "<p>单据标识</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "data.list.billType",
+            "description": "<p>单据类型</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "long",
+            "optional": false,
+            "field": "data.list.createDate",
+            "description": "<p>创建日期</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data.list.deviceId",
+            "description": "<p>设备标识</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data.list.deviceSN",
+            "description": "<p>设备SN</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "data.list.handleStatus",
+            "description": "<p>处理状态</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data.list.productId",
+            "description": "<p>产品标识</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data.list.productName",
+            "description": "<p>产品名称</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "msg",
+            "description": "<p>返回信息</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "responseTime",
+            "description": "<p>返回响应时间</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "status",
+            "description": "<p>响应状态</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response: ",
+          "content": "{\n \"code\": \"string\",\n \"data\": {\n   \"count\": 0,\n   \"list\": [\n     {\n       \"billId\": \"string\",\n       \"billType\": 0,\n       \"createDate\": 0,\n       \"deviceId\": \"string\",\n       \"deviceSN\": \"string\",\n       \"handleStatus\": 0,\n       \"productId\": \"string\",\n       \"productName\": \"string\"\n     }\n   ]\n },\n \"msg\": \"string\",\n \"responseTime\": \"2019-03-14T06:25:42.305Z\",\n \"status\": \"string\"\n}",
           "type": "json"
         }
       ]
@@ -4609,881 +5484,6 @@
         {
           "title": "Header-Example:",
           "content": "{\n\"Access-Token\":\"访问凭证\",\n\"Content-Type\":\"application/json\"\n}",
-          "type": "json"
-        }
-      ]
-    }
-  },
-  {
-    "type": "GET",
-    "url": "/v1/XLINK-RENT-REST/ReletOrderController/getOrderAccountInfoByOrderId?rentOrderId=$\\{rentOrderId\\}",
-    "title": "根据直租订单标识获取直租订单账期相关信息",
-    "name": "getOrderAccountInfoByOrderId",
-    "group": "ReletOrderController",
-    "description": "<p>根据直租订单标识获取直租订单账期相关信息</p>",
-    "permission": [
-      {
-        "name": "userOnly"
-      }
-    ],
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": false,
-            "field": "rentOrderId",
-            "description": "<p>直租订单标识</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "fields": {
-        "Success 200": [
-          {
-            "group": "Success 200",
-            "type": "string",
-            "optional": false,
-            "field": "code",
-            "description": "<p>返回编码</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "object",
-            "optional": false,
-            "field": "data",
-            "description": "<p>返回数据</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "string",
-            "optional": false,
-            "field": "data.accountPeriodId",
-            "description": "<p>账期编号</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "decimal(string)",
-            "optional": false,
-            "field": "data.amount",
-            "description": "<p>账期总额</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "long",
-            "optional": false,
-            "field": "data.endDate",
-            "description": "<p>账期结束日期</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "string",
-            "optional": false,
-            "field": "data.id",
-            "description": "<p>订单账期标识</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "string",
-            "optional": false,
-            "field": "data.name",
-            "description": "<p>账期名称</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "array(object)",
-            "optional": false,
-            "field": "data.orderAccountPeriodDetailVos",
-            "description": "<p>订单账期详情列表</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "decimal(string)",
-            "optional": false,
-            "field": "data.orderAccountPeriodDetailVos.acceptMoney",
-            "description": "<p>已回款</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "string",
-            "optional": false,
-            "field": "data.orderAccountPeriodDetailVos.id",
-            "description": "<p>订单账期详情标识</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "string",
-            "optional": false,
-            "field": "data.orderAccountPeriodDetailVos.orderAccountId",
-            "description": "<p>订单账期标识</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "long",
-            "optional": false,
-            "field": "data.orderAccountPeriodDetailVos.payDate",
-            "description": "<p>回款日期</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "decimal(string)",
-            "optional": false,
-            "field": "data.orderAccountPeriodDetailVos.payMoney",
-            "description": "<p>账期金额</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "int",
-            "optional": false,
-            "field": "data.orderAccountPeriodDetailVos.payNode",
-            "description": "<p>回款节点</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "decimal(string)",
-            "optional": false,
-            "field": "data.orderAccountPeriodDetailVos.payRadio",
-            "description": "<p>回款比例</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "int",
-            "optional": false,
-            "field": "data.orderAccountPeriodDetailVos.periodOrder",
-            "description": "<p>期数</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "string",
-            "optional": false,
-            "field": "data.orderAccountPeriodDetailVos.status",
-            "description": "<p>订单账期明细状态   未开始NOT_START/已完成FINISHED/近期回款NEAR_BACK/已逾期EXPIRE</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "long",
-            "optional": false,
-            "field": "data.orderAccountPeriodDetailVos.statusDate",
-            "description": "<p>状态更新时间</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "string",
-            "optional": false,
-            "field": "data.orderId",
-            "description": "<p>订单标识</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "int",
-            "optional": false,
-            "field": "data.period",
-            "description": "<p>账期期限</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "decimal(string)",
-            "optional": false,
-            "field": "data.receivedMoney",
-            "description": "<p>已回款金额</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "decimal(string)",
-            "optional": false,
-            "field": "data.remainedMoney",
-            "description": "<p>未回款金额</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "long",
-            "optional": false,
-            "field": "data.startDate",
-            "description": "<p>账期起始日期</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "string",
-            "optional": false,
-            "field": "data.status",
-            "description": "<p>订单账期状态  进行中RUNNING/已完成FINISHED/已关闭CLOSED/已逾期EXPIRED</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "long",
-            "optional": false,
-            "field": "data.statusDate",
-            "description": "<p>状态更新时间</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "string",
-            "optional": false,
-            "field": "msg",
-            "description": "<p>返回信息</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "string",
-            "optional": false,
-            "field": "responseTime",
-            "description": "<p>返回响应时间</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "string",
-            "optional": false,
-            "field": "status",
-            "description": "<p>响应状态</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "{\n \"code\": \"string\",\n \"data\": {\n   \"accountPeriodId\": \"string\",\n   \"amount\": 0,\n   \"endDate\": 0,\n   \"id\": \"string\",\n   \"name\": \"string\",\n   \"orderAccountPeriodDetailVos\": [\n     {\n       \"acceptMoney\": 0,\n       \"id\": \"string\",\n       \"orderAccountId\": \"string\",\n       \"payDate\": 0,\n       \"payMoney\": 0,\n       \"payNode\": 0,\n       \"payRadio\": 0,\n       \"periodOrder\": 0,\n       \"status\": \"NOT_START\",\n       \"statusDate\": 0\n     }\n   ],\n   \"orderId\": \"string\",\n   \"period\": 0,\n   \"receivedMoney\": 0,\n   \"remainedMoney\": 0,\n   \"startDate\": 0,\n   \"status\": \"RUNNING\",\n   \"statusDate\": 0\n },\n \"msg\": \"string\",\n \"responseTime\": \"2019-03-14T03:58:01.496Z\",\n \"status\": \"string\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/main/java/cn/xlink/cloud/rent/rest/controller/DirectRentOrderRestController.java",
-    "groupTitle": "ReletOrderController",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "string",
-            "optional": false,
-            "field": "Access-Token",
-            "description": "<p>xlink平台颁发的凭证</p>"
-          },
-          {
-            "group": "Header",
-            "type": "string",
-            "optional": false,
-            "field": "Content-Type",
-            "description": "<p>application/json</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Header-Example:",
-          "content": "{\n\"Access-Token\":\"访问凭证\",\n\"Content-Type\":\"application/json\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "error": {
-      "fields": {
-        "错误格式说明": [
-          {
-            "group": "errorFormat",
-            "type": "string",
-            "optional": false,
-            "field": "msg",
-            "description": "<p>接口返回的错误信息</p>"
-          },
-          {
-            "group": "errorFormat",
-            "type": "string",
-            "optional": false,
-            "field": "code",
-            "description": "<p>错误码</p>"
-          }
-        ],
-        "错误码详情": [
-          {
-            "group": "errorCode",
-            "type": "string",
-            "optional": false,
-            "field": "000000",
-            "description": "<p>请求成功</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Error-Response:",
-          "content": "{\n    \"responseTime\": \"2019-01-02T09:47:15.032+0000\",\n    \"code\": \"20107007\",\n    \"status\": \"200\",\n    \"msg\": \"fail to add account period\",\n    \"data\": null\n}",
-          "type": "json"
-        }
-      ]
-    }
-  },
-  {
-    "type": "POST",
-    "url": "/v1/XLINK-RENT-REST/ReletOrderController/listExtendOrderInfo",
-    "title": "获取延伸订单信息列表",
-    "name": "listExtendOrderInfo",
-    "group": "ReletOrderController",
-    "description": "<p>获取延伸订单信息列表</p>",
-    "permission": [
-      {
-        "name": "userOnly"
-      }
-    ],
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": false,
-            "field": "page",
-            "description": "<p>页码，从1开始</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": false,
-            "field": "size",
-            "description": "<p>每页大小</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "array(object)",
-            "optional": true,
-            "field": "sort",
-            "description": "<p>排序对象</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "object",
-            "optional": false,
-            "field": "query",
-            "description": "<p>查询对象</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": false,
-            "field": "query.orderId",
-            "description": "<p>订单标识</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": false,
-            "field": "query.orderType",
-            "description": "<p>订单类型</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": false,
-            "field": "query.productId",
-            "description": "<p>产品标识</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": false,
-            "field": "query.handleStatus",
-            "description": "<p>处理状态</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "long",
-            "optional": false,
-            "field": "query.createDateStart",
-            "description": "<p>创建日期起点</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "long",
-            "optional": false,
-            "field": "query.createDateEnd",
-            "description": "<p>创建日期终点</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": false,
-            "field": "query.deviceSN",
-            "description": "<p>设备SN</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Request-Example:",
-          "content": "{\n \"page\": 0,\n \"query\": {\n   \"createDateEnd\": 0,\n   \"createDateStart\": 0,\n   \"deviceSN\": \"string\",\n   \"handleStatus\": 0,\n   \"orderId\": \"string\",\n   \"orderType\": 0,\n   \"productId\": \"string\"\n },\n \"size\": 0,\n \"sort\": [\n   {\n     \"createDate\": \"desc\"\n   }\n ]\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "success": {
-      "fields": {
-        "Success 200": [
-          {
-            "group": "Success 200",
-            "type": "string",
-            "optional": false,
-            "field": "code",
-            "description": "<p>返回编码</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "object",
-            "optional": false,
-            "field": "data",
-            "description": "<p>返回数据</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "long",
-            "optional": false,
-            "field": "data.count",
-            "description": "<p>总数</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "array(object)",
-            "optional": false,
-            "field": "data.list",
-            "description": "<p>数据列表</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "long",
-            "optional": false,
-            "field": "data.list.createDate",
-            "description": "<p>创建日期</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "string",
-            "optional": false,
-            "field": "data.list.deviceId",
-            "description": "<p>设备标识</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "string",
-            "optional": false,
-            "field": "data.list.deviceSN",
-            "description": "<p>设备SN</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "string",
-            "optional": false,
-            "field": "data.list.extendOrderId",
-            "description": "<p>延伸订单号</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "int",
-            "optional": false,
-            "field": "data.list.orderType",
-            "description": "<p>订单类型</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "string",
-            "optional": false,
-            "field": "data.list.productId",
-            "description": "<p>产品标识</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "string",
-            "optional": false,
-            "field": "data.list.productName",
-            "description": "<p>产品名称</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "int",
-            "optional": false,
-            "field": "data.list.status",
-            "description": "<p>状态</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "string",
-            "optional": false,
-            "field": "msg",
-            "description": "<p>返回信息</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "string",
-            "optional": false,
-            "field": "responseTime",
-            "description": "<p>返回响应时间</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "string",
-            "optional": false,
-            "field": "status",
-            "description": "<p>响应状态</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "{\n \"code\": \"string\",\n \"data\": {\n   \"count\": 0,\n   \"list\": [\n     {\n       \"createDate\": 0,\n       \"deviceId\": \"string\",\n       \"deviceSN\": \"string\",\n       \"extendOrderId\": \"string\",\n       \"orderType\": 0,\n       \"productId\": \"string\",\n       \"productName\": \"string\",\n       \"status\": 0\n     }\n   ]\n },\n \"msg\": \"string\",\n \"responseTime\": \"2019-03-14T06:32:07.324Z\",\n \"status\": \"string\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/main/java/cn/xlink/cloud/rent/rest/controller/DirectRentOrderRestController.java",
-    "groupTitle": "ReletOrderController",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "string",
-            "optional": false,
-            "field": "Access-Token",
-            "description": "<p>xlink平台颁发的凭证</p>"
-          },
-          {
-            "group": "Header",
-            "type": "string",
-            "optional": false,
-            "field": "Content-Type",
-            "description": "<p>application/json</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Header-Example:",
-          "content": "{\n\"Access-Token\":\"访问凭证\",\n\"Content-Type\":\"application/json\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "error": {
-      "fields": {
-        "错误格式说明": [
-          {
-            "group": "errorFormat",
-            "type": "string",
-            "optional": false,
-            "field": "msg",
-            "description": "<p>接口返回的错误信息</p>"
-          },
-          {
-            "group": "errorFormat",
-            "type": "string",
-            "optional": false,
-            "field": "code",
-            "description": "<p>错误码</p>"
-          }
-        ],
-        "错误码详情": [
-          {
-            "group": "errorCode",
-            "type": "string",
-            "optional": false,
-            "field": "000000",
-            "description": "<p>请求成功</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Error-Response:",
-          "content": "{\n    \"responseTime\": \"2019-01-02T09:47:15.032+0000\",\n    \"code\": \"20107007\",\n    \"status\": \"200\",\n    \"msg\": \"fail to add account period\",\n    \"data\": null\n}",
-          "type": "json"
-        }
-      ]
-    }
-  },
-  {
-    "type": "POST",
-    "url": "/v1/XLINK-RENT-REST/ReletOrderController/listThrowChangeRecord",
-    "title": "获取直租订单退换记录列表",
-    "name": "listThrowChangeRecord",
-    "group": "ReletOrderController",
-    "description": "<p>获取直租订单退换记录列表</p>",
-    "permission": [
-      {
-        "name": "userOnly"
-      }
-    ],
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": false,
-            "field": "page",
-            "description": "<p>页码，从1开始</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": false,
-            "field": "size",
-            "description": "<p>每页大小</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "array(object)",
-            "optional": true,
-            "field": "sort",
-            "description": "<p>排序对象</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "object",
-            "optional": false,
-            "field": "query",
-            "description": "<p>查询对象</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": false,
-            "field": "query.orderId",
-            "description": "<p>订单标识</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": false,
-            "field": "query.billType",
-            "description": "<p>单据类型</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": false,
-            "field": "query.productId",
-            "description": "<p>产品标识</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": false,
-            "field": "query.productName",
-            "description": "<p>产品名称</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "int",
-            "optional": false,
-            "field": "query.handleStatus",
-            "description": "<p>处理状态</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "long",
-            "optional": false,
-            "field": "query.createDateStart",
-            "description": "<p>创建日期起点</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "long",
-            "optional": false,
-            "field": "query.createDateEnd",
-            "description": "<p>创建日期终点</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Request-Example:",
-          "content": "{\n \"page\": 0,\n \"query\": {\n   \"billType\": 0,\n   \"createDateEnd\": 0,\n   \"createDateStart\": 0,\n   \"handleStatus\": 0,\n   \"orderId\": \"string\",\n   \"productId\": \"string\",\n   \"productName\": \"string\"\n },\n \"size\": 0,\n \"sort\": [\n   {\n     \"createDate\": \"desc\"\n   }\n ]\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "success": {
-      "fields": {
-        "Success 200": [
-          {
-            "group": "Success 200",
-            "type": "string",
-            "optional": false,
-            "field": "code",
-            "description": "<p>返回编码</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "object",
-            "optional": false,
-            "field": "data",
-            "description": "<p>返回数据</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "long",
-            "optional": false,
-            "field": "data.count",
-            "description": "<p>总数</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "array(object)",
-            "optional": false,
-            "field": "data.list",
-            "description": "<p>数据列表</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "string",
-            "optional": false,
-            "field": "data.list.billId",
-            "description": "<p>单据标识</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "int",
-            "optional": false,
-            "field": "data.list.billType",
-            "description": "<p>单据类型</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "long",
-            "optional": false,
-            "field": "data.list.createDate",
-            "description": "<p>创建日期</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "string",
-            "optional": false,
-            "field": "data.list.deviceId",
-            "description": "<p>设备标识</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "string",
-            "optional": false,
-            "field": "data.list.deviceSN",
-            "description": "<p>设备SN</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "int",
-            "optional": false,
-            "field": "data.list.handleStatus",
-            "description": "<p>处理状态</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "string",
-            "optional": false,
-            "field": "data.list.productId",
-            "description": "<p>产品标识</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "string",
-            "optional": false,
-            "field": "data.list.productName",
-            "description": "<p>产品名称</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "string",
-            "optional": false,
-            "field": "msg",
-            "description": "<p>返回信息</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "string",
-            "optional": false,
-            "field": "responseTime",
-            "description": "<p>返回响应时间</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "string",
-            "optional": false,
-            "field": "status",
-            "description": "<p>响应状态</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Success-Response: ",
-          "content": "{\n \"code\": \"string\",\n \"data\": {\n   \"count\": 0,\n   \"list\": [\n     {\n       \"billId\": \"string\",\n       \"billType\": 0,\n       \"createDate\": 0,\n       \"deviceId\": \"string\",\n       \"deviceSN\": \"string\",\n       \"handleStatus\": 0,\n       \"productId\": \"string\",\n       \"productName\": \"string\"\n     }\n   ]\n },\n \"msg\": \"string\",\n \"responseTime\": \"2019-03-14T06:25:42.305Z\",\n \"status\": \"string\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "src/main/java/cn/xlink/cloud/rent/rest/controller/DirectRentOrderRestController.java",
-    "groupTitle": "ReletOrderController",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "string",
-            "optional": false,
-            "field": "Access-Token",
-            "description": "<p>xlink平台颁发的凭证</p>"
-          },
-          {
-            "group": "Header",
-            "type": "string",
-            "optional": false,
-            "field": "Content-Type",
-            "description": "<p>application/json</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Header-Example:",
-          "content": "{\n\"Access-Token\":\"访问凭证\",\n\"Content-Type\":\"application/json\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "error": {
-      "fields": {
-        "错误格式说明": [
-          {
-            "group": "errorFormat",
-            "type": "string",
-            "optional": false,
-            "field": "msg",
-            "description": "<p>接口返回的错误信息</p>"
-          },
-          {
-            "group": "errorFormat",
-            "type": "string",
-            "optional": false,
-            "field": "code",
-            "description": "<p>错误码</p>"
-          }
-        ],
-        "错误码详情": [
-          {
-            "group": "errorCode",
-            "type": "string",
-            "optional": false,
-            "field": "000000",
-            "description": "<p>请求成功</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Error-Response:",
-          "content": "{\n    \"responseTime\": \"2019-01-02T09:47:15.032+0000\",\n    \"code\": \"20107007\",\n    \"status\": \"200\",\n    \"msg\": \"fail to add account period\",\n    \"data\": null\n}",
           "type": "json"
         }
       ]
