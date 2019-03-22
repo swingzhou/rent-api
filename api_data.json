@@ -2274,14 +2274,14 @@
             "type": "string",
             "optional": false,
             "field": "data.orderStatus",
-            "description": "<p>订单状态  待审核PENDING_CHECK/待出货PENDING_SHIP/已完成FINISHED/已关闭CLOSED</p>"
+            "description": "<p>订单状态   待审核PENDING_CHECK/待出货PENDING_SHIP/已完成FINISHED/已关闭CLOSED</p>"
           },
           {
             "group": "Success 200",
             "type": "string",
             "optional": false,
             "field": "data.rentOrderType",
-            "description": "<p>直租订单类型  直租订单DIRECT_RENT/商用售租订单COMMERCIAL_SALE_RENT/民用售租订单CIVIL_SALE_RENT/续租订单RERENT</p>"
+            "description": "<p>直租订单类型   直租订单DIRECT_RENT/商用售租订单COMMERCIAL_SALE_RENT/民用售租订单CIVIL_SALE_RENT/续租订单RERENT</p>"
           },
           {
             "group": "Success 200",
@@ -3224,7 +3224,7 @@
   {
     "type": "POST",
     "url": "/v1/xlink-rent-rest/directRentOrderRest/listDirectRentOrderDeviceInfo",
-    "title": "",
+    "title": "获取直租订单设备与租约信息列表",
     "name": "listDirectRentOrderDeviceInfo",
     "group": "DirectRentOrderRestController",
     "description": "<p>获取直租订单设备与租约信息列表</p>",
@@ -3387,7 +3387,7 @@
             "type": "int",
             "optional": false,
             "field": "data.list.rentStatus",
-            "description": "<p>租约状态</p>"
+            "description": "<p>租约状态        待激活PENDING_ACTIVATION/租赁中LEASING/暂停中PAUSE/已结束FINISHED</p>"
           },
           {
             "group": "Success 200",
@@ -3653,7 +3653,7 @@
             "type": "int",
             "optional": false,
             "field": "data.list.orderType",
-            "description": "<p>订单类型</p>"
+            "description": "<p>订单类型       直租订单DIRECT_RENT/商用售租订单COMMERCIAL_SALE_RENT/民用售租订单CIVIL_SALE_RENT /续租订单RERENT/换机订单LEASE_ADJUST/换机工单CHANGE_WORK_ORDER/退租申请单THROW_LEASE/租约服务订单LEASE_SERVICE</p>"
           },
           {
             "group": "Success 200",
@@ -3674,7 +3674,7 @@
             "type": "int",
             "optional": false,
             "field": "data.list.status",
-            "description": "<p>状态</p>"
+            "description": "<p>状态      待审核PENDING_CHECK/待出货WAITING_SHIPMENT/已完成FINISHED/已关闭CLOSED</p>"
           },
           {
             "group": "Success 200",
@@ -4101,7 +4101,7 @@
             "type": "int",
             "optional": false,
             "field": "data.list.billType",
-            "description": "<p>单据类型</p>"
+            "description": "<p>单据类型     直租订单DIRECT_RENT/商用售租订单COMMERCIAL_SALE_RENT /民用售租订单CIVIL_SALE_RENT/续租订单RERENT/换机订单CHANGE/租约调整订单LEASE_ADJUST /换机工单CHANGE_WORK_ORDER/退租申请单THROW_LEASE/租约服务订单LEASE_SERVICE</p>"
           },
           {
             "group": "Success 200",
