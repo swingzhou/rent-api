@@ -16,24 +16,24 @@
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "string",
-            "optional": false,
-            "field": "type",
-            "description": "<p>调整类型 ADD(增加) SUB(减少)</p>"
-          },
-          {
-            "group": "Parameter",
             "type": "int",
             "optional": false,
             "field": "duration",
-            "description": "<p>调整时长</p>"
+            "description": "<p>租期</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "deviceId",
+            "description": "<p>设备标识</p>"
           },
           {
             "group": "Parameter",
             "type": "string",
             "optional": false,
             "field": "reason",
-            "description": "<p>调整原因</p>"
+            "description": "<p>备注</p>"
           },
           {
             "group": "Parameter",
@@ -41,13 +41,27 @@
             "optional": false,
             "field": "deviceSn",
             "description": "<p>设备SN</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "contacts",
+            "description": "<p>联系人</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "telephone",
+            "description": "<p>联系方式</p>"
           }
         ]
       },
       "examples": [
         {
           "title": "Request-Example:",
-          "content": "{\n   \"type\": \"ADD\",\n   \"duration\": 0,\n   \"reason\": \"string\",\n   \"deviceSn\": \"string\"\n}",
+          "content": "{\n   \"deviceId\": \"string\",\n   \"duration\": 0,\n   \"reason\": \"string\",\n   \"deviceSn\": \"string\",\n   \"contacts\": \"string\",\n   \"telephone\": \"string\"\n}",
           "type": "json"
         }
       ]
@@ -143,13 +157,6 @@
             "group": "Success 200",
             "type": "string",
             "optional": false,
-            "field": "data.leaseAdjustRequestDto.marketCenterId",
-            "description": "<p>营销中心标识</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "string",
-            "optional": false,
             "field": "data.leaseAdjustRequestDto.ownerId",
             "description": "<p>设备拥有者标识</p>"
           },
@@ -213,15 +220,22 @@
             "group": "Success 200",
             "type": "string",
             "optional": false,
-            "field": "data.leaseAdjustRequestDto.type",
-            "description": "<p>类型  ADD(增加) SUB(减少)</p>"
+            "field": "data.leaseAdjustRequestDto.unit",
+            "description": "<p>单位</p>"
           },
           {
             "group": "Success 200",
             "type": "string",
             "optional": false,
-            "field": "data.leaseAdjustRequestDto.unit",
-            "description": "<p>单位</p>"
+            "field": "data.leaseAdjustRequestDto.contacts",
+            "description": "<p>联系人</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data.leaseAdjustRequestDto.telephone",
+            "description": "<p>联系方式</p>"
           },
           {
             "group": "Success 200",
@@ -900,6 +914,20 @@
             "group": "Success 200",
             "type": "string",
             "optional": false,
+            "field": "data.contacts",
+            "description": "<p>联系人</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data.telephone",
+            "description": "<p>联系方式</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
             "field": "msg",
             "description": "<p>返回信息</p>"
           },
@@ -1173,6 +1201,27 @@
             "group": "Success 200",
             "type": "string",
             "optional": false,
+            "field": "data.list.createName",
+            "description": "<p>下单员</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data.list.telephone",
+            "description": "<p>联系方式</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data.list.productName",
+            "description": "<p>产品名称</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
             "field": "data.list.status",
             "description": "<p>状态  PENDING_CHECK/待审核 FINISHED/已完成 CLOSED/已关闭</p>"
           },
@@ -1202,7 +1251,7 @@
       "examples": [
         {
           "title": "Success-Response: ",
-          "content": "HTTP/1.1 200 OK \n{\n   \"code\": \"string\",\n   \"data\": {\n     \"count\": 0,\n     \"current_page\": 0,\n     \"list\": [\n       {\n        \"createDate\": 0,\n         \"deviceSn\": \"string\",\n         \"duration\": 0,\n         \"id\": \"string\",\n         \"reason\": \"string\",\n         \"status\": \"PENDING_CHECK\"\n       }\n     ],\n     \"per_page\": 0\n   },\n   \"msg\": \"string\",\n   \"responseTime\": \"2019-03-15T07:41:27.829Z\",\n   \"status\": \"string\"\n }",
+          "content": "HTTP/1.1 200 OK \n{\n   \"code\": \"string\",\n   \"data\": {\n     \"count\": 0,\n     \"current_page\": 0,\n     \"list\": [\n       {\n        \"createDate\": 0,\n         \"deviceSn\": \"string\",\n         \"duration\": 0,\n         \"id\": \"string\",\n         \"reason\": \"string\",\n         \"status\": \"PENDING_CHECK\",\n         \"createName\":\"zhangsan\",\n         \"telephone\":\"1111\",\n         \"productName\":\"111\"\n       }\n     ],\n     \"per_page\": 0\n   },\n   \"msg\": \"string\",\n   \"responseTime\": \"2019-03-15T07:41:27.829Z\",\n   \"status\": \"string\"\n }",
           "type": "json"
         }
       ]
