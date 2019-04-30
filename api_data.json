@@ -7302,6 +7302,1144 @@
   },
   {
     "type": "POST",
+    "url": "/v1/xlink-rent-rest/reletOrderRest/createReletOrder",
+    "title": "创建续租订单",
+    "name": "createReletOrder",
+    "group": "ReletOrderController",
+    "description": "<p>创建续租订单</p>",
+    "permission": [
+      {
+        "name": "userOnly"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "directRentOrderId",
+            "description": "<p>直租订单标识</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "rentPeriod",
+            "description": "<p>续租租期</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "customId",
+            "description": "<p>客户标识</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "customName",
+            "description": "<p>客户名称</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "accountPeriodId",
+            "description": "<p>账期方式标识</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "comment",
+            "description": "<p>备注</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "decimal(string)",
+            "optional": false,
+            "field": "amount",
+            "description": "<p>订单总额</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "array(object)",
+            "optional": false,
+            "field": "products",
+            "description": "<p>产品集合</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "products.rentOrderId",
+            "description": "<p>订单标识</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "products.rentOrderType",
+            "description": "<p>租赁订单类型 RERENT/续租订单</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "decimal(string)",
+            "optional": false,
+            "field": "products.amount",
+            "description": "<p>租金总额</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "products.productId",
+            "description": "<p>产品标识</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "products.productModel",
+            "description": "<p>产品型号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "products.productPn",
+            "description": "<p>产品料号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "products.productName",
+            "description": "<p>产品名称</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "products.unit",
+            "description": "<p>计量单位类型</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "products.num",
+            "description": "<p>租赁数量</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "decimal(string)",
+            "optional": false,
+            "field": "products.rentPrice",
+            "description": "<p>租金</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "array(object)",
+            "optional": false,
+            "field": "products.rentPeriodRangeDtos",
+            "description": "<p>产品下租期集合</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "products.rentPeriodRangeDtos.rentOrderProductId",
+            "description": "<p>租赁订单详情标识</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "products.rentPeriodRangeDtos.periodOrder",
+            "description": "<p>租期序号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "decimal(string)",
+            "optional": false,
+            "field": "products.rentPeriodRangeDtos.rentMoney",
+            "description": "<p>租金</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n   \"directRentOrderId\": \"string\",\n   \"rentPeriod\": 0,\n   \"customId\": \"string\",\n   \"customName\": \"string\",\n   \"accountPeriodId\": \"string\",\n   \"comment\": \"string\",\n   \"amount\": 0,\n   \"products\": [\n     {\n       \"rentOrderId\": \"string\",\n       \"rentOrderType\": \"DIRECT_RENT\",\n       \"amount\": 0,\n       \"productId\": \"string\",\n       \"productModel\": \"string\",\n       \"productPn\": \"string\",\n       \"productName\": \"string\",\n       \"unit\": \"string\",\n       \"num\": 0,\n       \"rentPrice\": 0,\n       \"rentPeriodRangeDtos\": [\n         {\n           \"rentOrderProductId\": \"string\",\n           \"periodOrder\": 0,\n           \"rentMoney\": 0\n         }\n       ]\n     }\n   ]\n }",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "code",
+            "description": "<p>返回编码</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data",
+            "description": "<p>返回数据</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "msg",
+            "description": "<p>返回信息</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "responseTime",
+            "description": "<p>返回响应时间</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "status",
+            "description": "<p>响应状态</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response: ",
+          "content": "HTTP/1.1 200 OK \n{\n   \"code\": \"string\",\n   \"data\": \"string\",\n   \"msg\": \"string\",\n   \"responseTime\": \"2019-04-29T07:52:05.837Z\",\n   \"status\": \"string\"\n }",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/main/java/cn/xlink/cloud/rent/rest/controller/ReletOrderController.java",
+    "groupTitle": "ReletOrderController",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "Access-Token",
+            "description": "<p>xlink平台颁发的凭证</p>"
+          },
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "Content-Type",
+            "description": "<p>application/json</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Header-Example: ",
+          "content": "{\"Access-Token\":\"访问凭证\",\"Content-Type\":\"application/json\"}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "错误格式说明": [
+          {
+            "group": "errorFormat",
+            "type": "string",
+            "optional": false,
+            "field": "msg",
+            "description": "<p>接口返回的错误信息</p>"
+          },
+          {
+            "group": "errorFormat",
+            "type": "string",
+            "optional": false,
+            "field": "code",
+            "description": "<p>错误码</p>"
+          }
+        ],
+        "错误码详情": [
+          {
+            "group": "errorCode",
+            "type": "string",
+            "optional": false,
+            "field": "000000",
+            "description": "<p>请求成功</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response: ",
+          "content": "    { \"responseTime\": \"2019-01-02T09:47:15.032+0000\", \"code\": \"20107007\",\n\"status\": \"200\", \"msg\": \"fail to add account period\", \"data\": null }",
+          "type": "json"
+        }
+      ]
+    }
+  },
+  {
+    "type": "GET",
+    "url": "/v1/xlink-rent-rest/reletOrderRest/getReletOrderInfo/{id}",
+    "title": "查询续租订单详情",
+    "name": "getReletOrderInfo",
+    "group": "ReletOrderController",
+    "description": "<p>查询续租订单详情</p>",
+    "permission": [
+      {
+        "name": "userOnly"
+      }
+    ],
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "code",
+            "description": "<p>返回编码</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "object",
+            "optional": false,
+            "field": "data",
+            "description": "<p>返回数据</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "decimal(string)",
+            "optional": false,
+            "field": "data.amount",
+            "description": "<p>订单总额</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data.checkId",
+            "description": "<p>审核标识</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data.checkType",
+            "description": "<p>审核类型  UNDER_REVIEW/审核中 AUDIT_PASS/审核通过 AUDIT_REJECT/审核拒绝</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data.comment",
+            "description": "<p>订单备注</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data.createManName",
+            "description": "<p>创建者名称</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data.customCode",
+            "description": "<p>客户编码</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data.customName",
+            "description": "<p>客户名称</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data.marketCenterName",
+            "description": "<p>营销中心名称</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data.orderId",
+            "description": "<p>订单标识</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data.originOrderId",
+            "description": "<p>原订单标识</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "array(object)",
+            "optional": false,
+            "field": "data.reletOrderProductVos",
+            "description": "<p>续租订单关联产品</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "decimal(string)",
+            "optional": false,
+            "field": "data.reletOrderProductVos.amount",
+            "description": "<p>产品总租金</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "data.reletOrderProductVos.number",
+            "description": "<p>数量</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data.reletOrderProductVos.productId",
+            "description": "<p>产品标识</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data.reletOrderProductVos.productModel",
+            "description": "<p>产品型号</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data.reletOrderProductVos.productName",
+            "description": "<p>产品名称</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data.reletOrderProductVos.productPn",
+            "description": "<p>产品料号</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "decimal(string)",
+            "optional": false,
+            "field": "data.reletOrderProductVos.rentMoney",
+            "description": "<p>租金</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "data.reletOrderProductVos.rentPeriod",
+            "description": "<p>续租租期</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "array(object)",
+            "optional": false,
+            "field": "data.reletOrderProductVos.rentRangeVos",
+            "description": "<p>租期分布</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "decimal(string)",
+            "optional": false,
+            "field": "data.reletOrderProductVos.rentRangeVos.rentMoney",
+            "description": "<p>租金</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "data.reletOrderProductVos.rentRangeVos.rentPeriod",
+            "description": "<p>租期</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data.reletOrderProductVos.unit",
+            "description": "<p>单位</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data.status",
+            "description": "<p>状态  PENDING_CHECK/待审核 FINISHED/已完成 CLOSED/已关闭</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "msg",
+            "description": "<p>返回信息</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "responseTime",
+            "description": "<p>返回响应时间</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "status",
+            "description": "<p>响应状态</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response: ",
+          "content": "HTTP/1.1 200 OK \n{\n   \"code\": \"string\",\n   \"data\": {\n     \"amount\": 0,\n     \"checkId\": \"string\",\n     \"checkType\": \"UNDER_REVIEW\",\n     \"comment\": \"string\",\n     \"createManName\": \"string\",\n     \"customCode\": \"string\",\n     \"customName\": \"string\",\n     \"marketCenterName\": \"string\",\n     \"orderId\": \"string\",\n     \"originOrderId\": \"string\",\n     \"reletOrderProductVos\": [\n       {\n         \"amount\": 0,\n         \"number\": 0,\n         \"productId\": \"string\",\n         \"productModel\": \"string\",\n         \"productName\": \"string\",\n         \"productPn\": \"string\",\n         \"rentMoney\": 0,\n         \"rentPeriod\": 0,\n         \"rentRangeVos\": [\n           {\n             \"rentMoney\": 0,\n             \"rentPeriod\": 0\n           }\n         ],\n         \"unit\": \"string\"\n       }\n     ],\n     \"status\": \"PENDING_CHECK\"\n   }\n\"msg\": \"string\",\n\"responseTime\": \"2019-04-29T08:25:34.351Z\",\n\"status\": \"string\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/main/java/cn/xlink/cloud/rent/rest/controller/ReletOrderController.java",
+    "groupTitle": "ReletOrderController",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "Access-Token",
+            "description": "<p>xlink平台颁发的凭证</p>"
+          },
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "Content-Type",
+            "description": "<p>application/json</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Header-Example: ",
+          "content": "{\"Access-Token\":\"访问凭证\",\"Content-Type\":\"application/json\"}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "错误格式说明": [
+          {
+            "group": "errorFormat",
+            "type": "string",
+            "optional": false,
+            "field": "msg",
+            "description": "<p>接口返回的错误信息</p>"
+          },
+          {
+            "group": "errorFormat",
+            "type": "string",
+            "optional": false,
+            "field": "code",
+            "description": "<p>错误码</p>"
+          }
+        ],
+        "错误码详情": [
+          {
+            "group": "errorCode",
+            "type": "string",
+            "optional": false,
+            "field": "000000",
+            "description": "<p>请求成功</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response: ",
+          "content": "    { \"responseTime\": \"2019-01-02T09:47:15.032+0000\", \"code\": \"20107007\",\n\"status\": \"200\", \"msg\": \"fail to add account period\", \"data\": null }",
+          "type": "json"
+        }
+      ]
+    }
+  },
+  {
+    "type": "POST",
+    "url": "/v1/xlink-rent-rest/reletOrderRest/listReletOrders",
+    "title": "分页查询续租订单列表",
+    "name": "listReletOrders",
+    "group": "ReletOrderController",
+    "description": "<p>分页查询续租订单列表</p>",
+    "permission": [
+      {
+        "name": "userOnly"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "page",
+            "description": "<p>页数</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "size",
+            "description": "<p>页大小</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "array(object)",
+            "optional": false,
+            "field": "sort",
+            "description": "<p>排序数组</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "object",
+            "optional": false,
+            "field": "query",
+            "description": "<p>查询参数</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "query.rentPeriod",
+            "description": "<p>续租租期</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "query.id",
+            "description": "<p>续租订单号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "query.originOrderId",
+            "description": "<p>原订单号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "query.productName",
+            "description": "<p>产品名称</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "query.customName",
+            "description": "<p>客户名称</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "query.createManName",
+            "description": "<p>创建者标识</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "long",
+            "optional": false,
+            "field": "query.createDateStart",
+            "description": "<p>创建开始日期</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "long",
+            "optional": false,
+            "field": "query.createDateEnd",
+            "description": "<p>创建结束日期</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "query.status",
+            "description": "<p>状态  PENDING_CHECK/待审核 FINISHED/已完成 CLOSED/已关闭</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n   \"page\": 1,\n   \"size\": 10,\n   \"sort\": [\n     {\n       \"additionalProp1\": \"string\",\n     }\n   ],\n   \"query\": {\n     \"rentPeriod\": 0,\n     \"id\": \"string\",\n     \"originOrderId\": \"string\",\n     \"productName\": \"string\",\n     \"customName\": \"string\",\n     \"createManName\": \"string\",\n     \"createDateStart\": 0,\n     \"createDateEnd\": 0,\n     \"status\": \"PENDING_CHECK\"\n   }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "code",
+            "description": "<p>返回编码</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "object",
+            "optional": false,
+            "field": "data",
+            "description": "<p>数据对象</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "long",
+            "optional": false,
+            "field": "data.count",
+            "description": "<p>总数</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "array(object)",
+            "optional": false,
+            "field": "data.list",
+            "description": "<p>数据集合</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "decimal(string)",
+            "optional": false,
+            "field": "data.list.amount",
+            "description": ""
+          },
+          {
+            "group": "Success 200",
+            "type": "long",
+            "optional": false,
+            "field": "data.list.createDate",
+            "description": "<p>创建日期</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data.list.createMan",
+            "description": "<p>创建者标识</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data.list.createManName",
+            "description": "<p>创建者标识</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data.list.customId",
+            "description": "<p>客户标识</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data.list.customName",
+            "description": "<p>客户名称</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data.list.customType",
+            "description": "<p>客户类型 BIG_CUSTOM/大客户 DEALER/经销商</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data.list.orderId",
+            "description": "<p>订单标识</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data.list.orderStatus",
+            "description": "<p>订单状态</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data.list.orignOrderId",
+            "description": "<p>源订单标识</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "array(object)",
+            "optional": false,
+            "field": "data.list.reletOrderProductVos",
+            "description": "<p>产品信息集合</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "decimal(string)",
+            "optional": false,
+            "field": "data.list.reletOrderProductVos.amount",
+            "description": "<p>产品总租金</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "data.list.reletOrderProductVos.number",
+            "description": "<p>数量</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data.list.reletOrderProductVos.productId",
+            "description": "<p>产品标识</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data.list.reletOrderProductVos.productModel",
+            "description": "<p>产品模型</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data.list.reletOrderProductVos.productName",
+            "description": "<p>产品名称</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data.list.reletOrderProductVos.productPn",
+            "description": "<p>产品料号</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "decimal(string)",
+            "optional": false,
+            "field": "data.list.reletOrderProductVos.rentMoney",
+            "description": "<p>租金</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "data.list.reletOrderProductVos.rentPeriod",
+            "description": "<p>续租租期</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "array(object)",
+            "optional": false,
+            "field": "data.list.reletOrderProductVos.rentRangeVos",
+            "description": "<p>租期分布集合</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "decimal(string)",
+            "optional": false,
+            "field": "data.list.reletOrderProductVos.rentRangeVos.rentMoney",
+            "description": "<p>租金</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "data.list.reletOrderProductVos.rentRangeVos.rentPeriod",
+            "description": "<p>租期</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data.list.reletOrderProductVos.unit",
+            "description": "<p>单位</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "data.list.rentPeriod",
+            "description": "<p>租期</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "msg",
+            "description": "<p>返回信息</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "responseTime",
+            "description": "<p>返回响应时间</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "status",
+            "description": "<p>响应状态</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response: ",
+          "content": "{\n   \"code\": \"string\",\n   \"data\": {\n     \"count\": 0,\n     \"list\": [\n       {\n         \"amount\": 0,\n         \"createDate\": 0,\n         \"createMan\": \"string\",\n         \"createManName\": \"string\",\n         \"customId\": \"string\",\n         \"customName\": \"string\",\n         \"customType\": \"BIG_CUSTOM\",\n         \"orderId\": \"string\",\n         \"orderStatus\": \"PENDING_CHECK\",\n         \"orignOrderId\": \"string\",\n         \"reletOrderProductVos\": [\n           {\n             \"amount\": 0,\n             \"number\": 0,\n             \"productId\": \"string\",\n             \"productModel\": \"string\",\n             \"productName\": \"string\",\n             \"productPn\": \"string\",\n             \"rentMoney\": 0,\n             \"rentPeriod\": 0,\n             \"rentRangeVos\": [\n               {\n                 \"rentMoney\": 0,\n                 \"rentPeriod\": 0\n               }\n             ],\n             \"unit\": \"string\"\n           }\n         ],\n         \"rentPeriod\": 0\n       }\n     ]\n   },\n   \"msg\": \"string\",\n   \"responseTime\": \"2019-04-29T08:02:04.121Z\",\n   \"status\": \"string\"\n }",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/main/java/cn/xlink/cloud/rent/rest/controller/ReletOrderController.java",
+    "groupTitle": "ReletOrderController",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "Access-Token",
+            "description": "<p>xlink平台颁发的凭证</p>"
+          },
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "Content-Type",
+            "description": "<p>application/json</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Header-Example: ",
+          "content": "{\"Access-Token\":\"访问凭证\",\"Content-Type\":\"application/json\"}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "错误格式说明": [
+          {
+            "group": "errorFormat",
+            "type": "string",
+            "optional": false,
+            "field": "msg",
+            "description": "<p>接口返回的错误信息</p>"
+          },
+          {
+            "group": "errorFormat",
+            "type": "string",
+            "optional": false,
+            "field": "code",
+            "description": "<p>错误码</p>"
+          }
+        ],
+        "错误码详情": [
+          {
+            "group": "errorCode",
+            "type": "string",
+            "optional": false,
+            "field": "000000",
+            "description": "<p>请求成功</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response: ",
+          "content": "    { \"responseTime\": \"2019-01-02T09:47:15.032+0000\", \"code\": \"20107007\",\n\"status\": \"200\", \"msg\": \"fail to add account period\", \"data\": null }",
+          "type": "json"
+        }
+      ]
+    }
+  },
+  {
+    "type": "POST",
+    "url": "/v1/xlink-rent-rest/reletOrderRest/reletOrderClose/{id}",
+    "title": "关闭续租订单",
+    "name": "reletOrderClose",
+    "group": "ReletOrderController",
+    "description": "<p>关闭续租订单</p>",
+    "permission": [
+      {
+        "name": "userOnly"
+      }
+    ],
+    "parameter": {
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n \"id\":\"001\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "code",
+            "description": "<p>返回编码</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data",
+            "description": "<p>返回数据</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "msg",
+            "description": "<p>返回信息</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "responseTime",
+            "description": "<p>返回响应时间</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "status",
+            "description": "<p>响应状态</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response: ",
+          "content": "HTTP/1.1 200 OK \n{\n   \"code\": \"string\",\n   \"data\": \"string\",\n   \"msg\": \"string\",\n   \"responseTime\": \"2019-04-29T09:20:46.266Z\",\n   \"status\": \"string\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/main/java/cn/xlink/cloud/rent/rest/controller/ReletOrderController.java",
+    "groupTitle": "ReletOrderController",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "Access-Token",
+            "description": "<p>xlink平台颁发的凭证</p>"
+          },
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "Content-Type",
+            "description": "<p>application/json</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Header-Example: ",
+          "content": "{\"Access-Token\":\"访问凭证\",\"Content-Type\":\"application/json\"}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "错误格式说明": [
+          {
+            "group": "errorFormat",
+            "type": "string",
+            "optional": false,
+            "field": "msg",
+            "description": "<p>接口返回的错误信息</p>"
+          },
+          {
+            "group": "errorFormat",
+            "type": "string",
+            "optional": false,
+            "field": "code",
+            "description": "<p>错误码</p>"
+          }
+        ],
+        "错误码详情": [
+          {
+            "group": "errorCode",
+            "type": "string",
+            "optional": false,
+            "field": "000000",
+            "description": "<p>请求成功</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response: ",
+          "content": "    { \"responseTime\": \"2019-01-02T09:47:15.032+0000\", \"code\": \"20107007\",\n\"status\": \"200\", \"msg\": \"fail to add account period\", \"data\": null }",
+          "type": "json"
+        }
+      ]
+    }
+  },
+  {
+    "type": "POST",
     "url": "/v1/xlink-rent-rest/rentDeviceRest/exportManufacturerRentDevics",
     "title": "导出厂商设备生命周期列表",
     "name": "exportRentDevics",
