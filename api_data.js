@@ -7302,6 +7302,258 @@ define({ "api": [
   },
   {
     "type": "POST",
+    "url": "/v1/xlink-rent-rest/leaseThrowRequestRest/listLeaseThrowRequestDevice",
+    "title": "分页查询未退租设备",
+    "name": "listLeaseThrowRequestDevice",
+    "group": "LeaseThrowRequestController",
+    "description": "<p>分页查询未退租设备</p>",
+    "permission": [
+      {
+        "name": "userOnly"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "page",
+            "description": "<p>页数</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "size",
+            "description": "<p>页大小</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "array(object)",
+            "optional": false,
+            "field": "sort",
+            "description": "<p>排序数组</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "object",
+            "optional": false,
+            "field": "query",
+            "description": "<p>查询</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "query.deviceSn",
+            "description": "<p>设备SN</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "query.productName",
+            "description": "<p>产品名称</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "query.num",
+            "description": "<p>产品料号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "query.model",
+            "description": "<p>产品模型</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "query.status",
+            "description": "<p>状态  LEASING/租赁中</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n   \"page\": 1,\n   \"size\": 10,\n   \"sort\": [\n     {\n       \"additionalProp3\": \"string\"\n     }\n   ]\n   \"query\": {\n     \"deviceSn\": \"string\",\n     \"productName\": \"string\",\n     \"num\": \"string\",\n     \"model\": \"string\",\n     \"status\": \"PENDING_RENT\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "code",
+            "description": "<p>返回编码</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "object",
+            "optional": false,
+            "field": "data",
+            "description": "<p>返回数据</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "long",
+            "optional": false,
+            "field": "data.count",
+            "description": "<p>总数</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "array(object)",
+            "optional": false,
+            "field": "data.list",
+            "description": "<p>数据集合</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data.list.deviceSn",
+            "description": "<p>设备SN</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data.list.model",
+            "description": "<p>产品模型</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data.list.num",
+            "description": "<p>产品料号</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data.list.productName",
+            "description": "<p>产品名称</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data.list.status",
+            "description": "<p>状态</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "msg",
+            "description": "<p>返回信息</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "responseTime",
+            "description": "<p>返回响应时间</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "status",
+            "description": "<p>响应状态</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response: ",
+          "content": "HTTP/1.1 200 OK \n{\n   \"code\": \"string\",\n   \"data\": {\n     \"count\": 0,\n     \"list\": [\n       {\n         \"deviceSn\": \"string\",\n         \"model\": \"string\",\n         \"num\": \"string\",\n         \"productName\": \"string\",\n         \"status\": \"PENDING_RENT\"\n       }\n     ]\n   },\n   \"msg\": \"string\",\n   \"responseTime\": \"2019-05-09T09:36:57.260Z\",\n   \"status\": \"string\"\n }",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/main/java/cn/xlink/cloud/rent/rest/controller/LeaseThrowRequestController.java",
+    "groupTitle": "LeaseThrowRequestController",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "Access-Token",
+            "description": "<p>xlink平台颁发的凭证</p>"
+          },
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "Content-Type",
+            "description": "<p>application/json</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Header-Example: ",
+          "content": "{\"Access-Token\":\"访问凭证\",\"Content-Type\":\"application/json\"}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "错误格式说明": [
+          {
+            "group": "errorFormat",
+            "type": "string",
+            "optional": false,
+            "field": "msg",
+            "description": "<p>接口返回的错误信息</p>"
+          },
+          {
+            "group": "errorFormat",
+            "type": "string",
+            "optional": false,
+            "field": "code",
+            "description": "<p>错误码</p>"
+          }
+        ],
+        "错误码详情": [
+          {
+            "group": "errorCode",
+            "type": "string",
+            "optional": false,
+            "field": "000000",
+            "description": "<p>请求成功</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response: ",
+          "content": "    { \"responseTime\": \"2019-01-02T09:47:15.032+0000\", \"code\": \"20107007\",\n\"status\": \"200\", \"msg\": \"fail to add account period\", \"data\": null }",
+          "type": "json"
+        }
+      ]
+    }
+  },
+  {
+    "type": "POST",
     "url": "/v1/xlink-rent-rest/reletOrderRest/createReletOrder",
     "title": "创建续租订单",
     "name": "createReletOrder",
@@ -7319,8 +7571,8 @@ define({ "api": [
             "group": "Parameter",
             "type": "string",
             "optional": false,
-            "field": "directRentOrderId",
-            "description": "<p>直租订单标识</p>"
+            "field": "originOrderId",
+            "description": "<p>原订单标识</p>"
           },
           {
             "group": "Parameter",
@@ -7474,7 +7726,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Request-Example:",
-          "content": "{\n   \"directRentOrderId\": \"string\",\n   \"rentPeriod\": 0,\n   \"customId\": \"string\",\n   \"customName\": \"string\",\n   \"accountPeriodId\": \"string\",\n   \"comment\": \"string\",\n   \"amount\": 0,\n   \"products\": [\n     {\n       \"rentOrderId\": \"string\",\n       \"rentOrderType\": \"DIRECT_RENT\",\n       \"amount\": 0,\n       \"productId\": \"string\",\n       \"productModel\": \"string\",\n       \"productPn\": \"string\",\n       \"productName\": \"string\",\n       \"unit\": \"string\",\n       \"num\": 0,\n       \"rentPrice\": 0,\n       \"rentPeriodRangeDtos\": [\n         {\n           \"rentOrderProductId\": \"string\",\n           \"periodOrder\": 0,\n           \"rentMoney\": 0\n         }\n       ]\n     }\n   ]\n }",
+          "content": "{\n   \"originOrderId\": \"string\",\n   \"rentPeriod\": 0,\n   \"customId\": \"string\",\n   \"customName\": \"string\",\n   \"accountPeriodId\": \"string\",\n   \"comment\": \"string\",\n   \"amount\": 0,\n   \"products\": [\n     {\n       \"rentOrderId\": \"string\",\n       \"rentOrderType\": \"DIRECT_RENT\",\n       \"amount\": 0,\n       \"productId\": \"string\",\n       \"productModel\": \"string\",\n       \"productPn\": \"string\",\n       \"productName\": \"string\",\n       \"unit\": \"string\",\n       \"num\": 0,\n       \"rentPrice\": 0,\n       \"rentPeriodRangeDtos\": [\n         {\n           \"rentOrderProductId\": \"string\",\n           \"periodOrder\": 0,\n           \"rentMoney\": 0\n         }\n       ]\n     }\n   ]\n }",
           "type": "json"
         }
       ]
@@ -7606,15 +7858,6 @@ define({ "api": [
         "name": "userOnly"
       }
     ],
-    "parameter": {
-      "examples": [
-        {
-          "title": "Request-Example:",
-          "content": "{\n \"orderId\":\"001\"\n}",
-          "type": "json"
-        }
-      ]
-    },
     "success": {
       "fields": {
         "Success 200": [
@@ -8758,15 +9001,6 @@ define({ "api": [
         "name": "userOnly"
       }
     ],
-    "parameter": {
-      "examples": [
-        {
-          "title": "Request-Example:",
-          "content": "{\n \"id\":\"001\"\n}",
-          "type": "json"
-        }
-      ]
-    },
     "success": {
       "fields": {
         "Success 200": [
