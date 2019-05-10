@@ -11620,6 +11620,279 @@ define({ "api": [
   },
   {
     "type": "POST",
+    "url": "/v1/xlink-rent-rest/rentDeviceRest/listManufacturerDeviceFinanceRecords",
+    "title": "分页查询厂商租赁设备关联财务记录",
+    "name": "listManufacturerDeviceFinanceRecords",
+    "group": "RentDeviceController",
+    "description": "<p>分页查询厂商租赁设备关联财务记录</p>",
+    "permission": [
+      {
+        "name": "userOnly"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "page",
+            "description": "<p>页数</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "size",
+            "description": "<p>页大小</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "array(object)",
+            "optional": false,
+            "field": "sort",
+            "description": "<p>排序数组</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "object",
+            "optional": false,
+            "field": "query",
+            "description": "<p>查询条件</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "query.deviceId",
+            "description": "<p>设备标识</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "query.financeType",
+            "description": "<p>财务类型  COST_FIXED/成本 INCOME_DEFERRED/收入 DEFER_PROFIT/递延 FIXED/转固</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "long",
+            "optional": false,
+            "field": "query.buyingTimeStart",
+            "description": "<p>开始时间</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "long",
+            "optional": false,
+            "field": "query.buyingTimeEnd",
+            "description": "<p>结束时间</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n   \"page\": 1,\n   \"size\": 10,\n   \"sort\": [\n     {\n       \"additionalProp3\": \"string\"\n     }\n   ]\n   \"query\": {\n     \"deviceId\": \"string\",\n     \"financeType\": \"COST\",\n     \"buyingTimeStart\": 0,\n     \"buyingTimeEnd\": 0\n   }\n }",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "code",
+            "description": "<p>返回编码</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "object",
+            "optional": false,
+            "field": "data",
+            "description": "<p>返回数据</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "decimal(string)",
+            "optional": false,
+            "field": "data.costCount",
+            "description": "<p>成本汇总</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "decimal(string)",
+            "optional": false,
+            "field": "data.incomeCount",
+            "description": "<p>收入汇总</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "object",
+            "optional": false,
+            "field": "data.pageResponse",
+            "description": "<p>分页数据</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "long",
+            "optional": false,
+            "field": "data.pageResponse.count",
+            "description": "<p>总数</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "array(object)",
+            "optional": false,
+            "field": "data.pageResponse.list",
+            "description": "<p>数据集合</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "long",
+            "optional": false,
+            "field": "data.pageResponse.list.buyingTime",
+            "description": "<p>购买时间</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "long",
+            "optional": false,
+            "field": "data.pageResponse.list.createDate",
+            "description": "<p>创建日期</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data.pageResponse.list.financeDetail",
+            "description": "<p>财务明细项</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "data.pageResponse.list.financeType",
+            "description": "<p>财务类型 COST_FIXED/成本 INCOME_DEFERRED/收入 DEFER_PROFIT/递延 FIXED/转固</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "decimal(string)",
+            "optional": false,
+            "field": "data.pageResponse.list.money",
+            "description": "<p>金额</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "decimal(string)",
+            "optional": false,
+            "field": "data.residualDeferral",
+            "description": "<p>剩余递延</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "msg",
+            "description": "<p>返回信息</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "responseTime",
+            "description": "<p>返回响应时间</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "status",
+            "description": "<p>响应状态</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response: ",
+          "content": "HTTP/1.1 200 OK \n{\n   \"code\": \"string\",\n   \"data\": {\n     \"costCount\": 0,\n     \"incomeCount\": 0,\n     \"pageResponse\": {\n       \"count\": 0,\n       \"list\": [\n         {\n           \"buyingTime\": 0,\n           \"financeDetail\": \"string\",\n           \"financeType\": \"COST\",\n           \"money\": 0\n         }\n       ]\n     },\n     \"residualDeferral\": 0\n   },\n   \"msg\": \"string\",\n   \"responseTime\": \"2019-05-10T03:17:58.832Z\",\n   \"status\": \"string\"\n }",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/main/java/cn/xlink/cloud/rent/rest/controller/RentDeviceController.java",
+    "groupTitle": "RentDeviceController",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "Access-Token",
+            "description": "<p>xlink平台颁发的凭证</p>"
+          },
+          {
+            "group": "Header",
+            "type": "string",
+            "optional": false,
+            "field": "Content-Type",
+            "description": "<p>application/json</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Header-Example: ",
+          "content": "{\"Access-Token\":\"访问凭证\",\"Content-Type\":\"application/json\"}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "错误格式说明": [
+          {
+            "group": "errorFormat",
+            "type": "string",
+            "optional": false,
+            "field": "msg",
+            "description": "<p>接口返回的错误信息</p>"
+          },
+          {
+            "group": "errorFormat",
+            "type": "string",
+            "optional": false,
+            "field": "code",
+            "description": "<p>错误码</p>"
+          }
+        ],
+        "错误码详情": [
+          {
+            "group": "errorCode",
+            "type": "string",
+            "optional": false,
+            "field": "000000",
+            "description": "<p>请求成功</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response: ",
+          "content": "    { \"responseTime\": \"2019-01-02T09:47:15.032+0000\", \"code\": \"20107007\",\n\"status\": \"200\", \"msg\": \"fail to add account period\", \"data\": null }",
+          "type": "json"
+        }
+      ]
+    }
+  },
+  {
+    "type": "POST",
     "url": "/v1/xlink-rent-rest/rentDeviceRest/listRentDevics",
     "title": "分页查询经销商设备管理(全部设备)",
     "name": "listRentDevics",
